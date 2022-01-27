@@ -329,6 +329,7 @@ assign [class="Thunar"] $ws2
 assign [class="Pcmanfm"] $ws3
 assign [class="code-oss"] $ws4
 assign [class="Geany"] $ws4
+assign [class="Notepadqq"] $ws4
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Alacritty] focus
@@ -338,6 +339,7 @@ for_window [class=Thunar] focus
 for_window [class=Pcmanfm] focus
 for_window [class=Geany] focus
 for_window [class=code-oss] focus
+for_window [class=Notepadqq] focus
 
 ##############
 # compositor #
@@ -423,6 +425,7 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 exec --no-startup-id sleep 3 && alacritty
 exec --no-startup-id sleep 2 && firefox
 exec --no-startup-id sleep 1 && pcmanfm
+exec --no-startup-id sleep 1 && code-oss
 
 ###############
 # system tray #
