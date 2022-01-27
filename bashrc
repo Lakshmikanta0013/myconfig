@@ -134,8 +134,10 @@ alias pup='paru -Syu'
 alias yin='yay -S'
 alias pin='paru -S'
 
-#Custom Clear
-alias clr="clear;colorscript random"
+#Custom Clear command
+alias clear='clear;colorscript random'
+alias clr='clear;colorscript random'
+
 #wifi
 alias wifi="nmtui"
 
