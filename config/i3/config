@@ -27,7 +27,7 @@
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Noto Sans Regular 10
+font pango:Source Code Pro 11
 
 # set the mod key to the winkey:
 set $mod Mod4
@@ -285,12 +285,12 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Redirect sound to headphones
-bindsym $mod+p exec /usr/local/bin/switch-audio-port
+#bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
 bindsym $mod+b exec /usr/bin/firefox
-bindsym $mod+e exec /usr/bin/thunar
-bindsym Insert exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
+bindsym $mod+e exec /usr/bin/pcmanfm
+bindsym Insert exec "scrot ~/Pictures/Screenshot/%Y-%m-%d-%T-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
@@ -324,13 +324,13 @@ set $ws10 "10"
 # bind program to workspace and focus to them on startup:
 assign [class="Alacritty"] $ws1
 assign [class="firefox"] $ws2
-assign [class="Thunar"] $ws3
+assign [class="Pcmanfm"] $ws3
 assign [class="Geany"] $ws4
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Alacritty] focus
 for_window [class=firefox] focus
-for_window [class=Thunar] focus
+for_window [class=Pcmanfm] focus
 for_window [class=Geany] focus
 
 ##############
@@ -352,7 +352,7 @@ for_window [class=Geany] focus
 #
 # picom: https://wiki.archlinux.org/title/Picom
 # manpage: https://man.archlinux.org/man/picom.1.en
-exec_always picom -f
+#exec_always picom -f
 
 ############################################################
 ############################################################
@@ -370,9 +370,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # if enabled you should comment welcome app.
 #exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 exec --no-startup-id dex --autostart --environment i3
-
-# start welcome app
-exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3
 
 # num lock activated
 exec --no-startup-id numlockx on
@@ -417,9 +414,9 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 #exec_always --no-startup-id autotiling
 
 # Autostart apps as you like
-exec --no-startup-id sleep 1 && xfce4-terminal
-exec --no-startup-id sleep 3 && firefox
-exec --no-startup-id sleep 2 && thunar
+exec --no-startup-id sleep 3 && alacritty
+exec --no-startup-id sleep 2 && firefox
+exec --no-startup-id sleep 1 && pcmanfm
 
 ###############
 # system tray #
@@ -554,7 +551,7 @@ client.urgent              $red            $red            $textcolor      $red
 
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
-bindsym $mod+d exec rofi -modi drun -show drun \
+bindsym $mod+p exec rofi -modi drun -show drun \
 		-config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F9 exec rofi -modi drun -show drun \
@@ -562,7 +559,7 @@ bindsym $mod+d exec rofi -modi drun -show drun \
 
 ## rofi bindings for window menu ($mod+t /F10 optional disabled)
 
-bindsym $mod+t exec rofi -show window \
+bindsym $mod+d exec rofi -show window \
 		-config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F10 exec rofi -show window \
