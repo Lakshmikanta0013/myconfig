@@ -104,6 +104,10 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 
+#Custom Clear command
+alias clear='clear;colorscript random'
+alias clr='clear;colorscript random' 
+
 # navigation
 alias ..='cd ..'
 alias ...='cd ../..'
