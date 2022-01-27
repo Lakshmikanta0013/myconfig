@@ -109,6 +109,9 @@ font-1 = Font Awesome 5 Free:pixelsize=12;2
 font-2 = Font Awesome 5 Free Solid:pixelsize=12;2
 font-3 = Font Awesome 5 Brands:pixelsize=12;2
 ;===============================================================================
+; modules: [ i3, xwindow , space , wifi , network , speedtest* , arch-update , arch-aur-updates , cpu , memory
+;brightnessctl* , backlight , pulseaudio , pulseaudio-control , date , pavolume , powermenu , pornhub , kdeconnect ]
+
 modules-left = i3 xwindow
 modules-center =
 modules-right = network kdeconnect cpu memory pulseaudio brightnessctl wifi date powermenu
