@@ -289,7 +289,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 ## App shortcuts
 bindsym $mod+b exec /usr/bin/firefox
-bindsym $mod+e exec /usr/bin/pcmanfm
+bindsym $mod+e exec /usr/bin/pcmanfm #/urs/bin/thunar
 bindsym Insert exec "scrot ~/Pictures/Screenshot/%Y-%m-%d-%T-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
@@ -324,14 +324,20 @@ set $ws10 "10"
 # bind program to workspace and focus to them on startup:
 assign [class="Alacritty"] $ws1
 assign [class="firefox"] $ws2
+assign [class="chromium"] $ws2
+assign [class="Thunar"] $ws2
 assign [class="Pcmanfm"] $ws3
+assign [class="code-oss"] $ws4
 assign [class="Geany"] $ws4
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Alacritty] focus
 for_window [class=firefox] focus
+for_window [class=chromium] focus
+for_window [class=Thunar] focus
 for_window [class=Pcmanfm] focus
 for_window [class=Geany] focus
+for_window [class=code-oss] focus
 
 ##############
 # compositor #
