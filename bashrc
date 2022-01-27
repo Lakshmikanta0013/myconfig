@@ -135,7 +135,6 @@ alias yin='yay -S'
 alias pin='paru -S'
 
 #Custom Clear command
-alias clear='clear;colorscript random'
 alias clr='clear;colorscript random'
 
 #wifi
