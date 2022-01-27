@@ -135,7 +135,7 @@ alias yin='yay -S'
 alias pin='paru -S'
 
 #Custom Clear
-alias clr="reset | colorscript random"
+alias clr="clear;colorscript random"
 #wifi
 alias wifi="nmtui"
 
