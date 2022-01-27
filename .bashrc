@@ -134,6 +134,17 @@ alias pup='paru -Syu'
 alias yin='yay -S'
 alias pin='paru -S'
 
+#apt command
+alias aptin='sudo apt install'
+alias aptrm='sudo apt purge'
+alias aptar='sudo apt --purge autoremove'
+alias apt='apt search'
+alias aptlist='apt list'
+alias aptinstalled= 'apt list --installed'
+alias aptup='sudo apt update && sudo apt upgrade'
+alias aptut='sudo apt update'
+alias aptug='sudo apt upgrade'
+
 #Custom Clear command
 alias clr='clear;colorscript random'
 
