@@ -445,6 +445,7 @@ for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 # set floating (nontiling) for special apps
 for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="GParted" instance="gpartedbin"] floating enable
 for_window [class="Xfce4-power-manager-settings" instance="xfce4-power-manager-settings"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
