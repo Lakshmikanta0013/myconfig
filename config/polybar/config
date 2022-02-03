@@ -114,7 +114,7 @@ font-3 = Font Awesome 5 Brands:pixelsize=12;2
 
 modules-left = i3 xwindow
 modules-center =
-modules-right = network kdeconnect cpu memory pulseaudio brightnessctl wifi date powermenu
+modules-right = arch-aur-updates network pulseaudio brightnessctl wifi date powermenu
 ;===============================================================================
 separator =
 
@@ -201,13 +201,14 @@ fuzzy-match = true
 ; NOTE: The label needs to match the name of the i3 workspace
 ;extra icons to choose from
 ;http://fontawesome.io/cheatsheet/
-;       v     
+;            
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
-ws-icon-default = 
+ws-icon-4 = 5;
+ws-icon-default = 
 ; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
 ; you must also define a ws-icon-5.
 ; NOTE: Icon will be available as the %icon% token inside label-*
@@ -313,7 +314,7 @@ content-background = ${colors.background-trans}
 
 [module/wifi]
 type = internal/network
-interface = wlan0
+interface = wlp6s0
 interval = 1.0
 
 ;============= run in terminal "nmtui" to get connected ========================
@@ -336,7 +337,7 @@ format-disconnected = <label-disconnected>
 ;   %downspeed% [wireless+wired]
 ;   %linkspeed% [wired]
 
-label-connected = "%{A1:nm-connection-editor:}%{A}"
+label-connected = "%{A1:nm-connection-editor:} %essid%%{A}"
 label-connected-background = ${colors.orange}
 label-connected-foreground = ${colors.background}
 label-connected-padding = 1
@@ -350,13 +351,13 @@ label-disconnected-padding = 1
 
 [module/network]
 type = internal/network
-interface = wlan0
+interface = wlp6s0
 interval = 1.0
 
 ; Available tags:
 ;   <label-connected> (default)
 ;   <ramp-signal>
-format-connected = <label-connected>
+format-connected =<label-connected>
 
 ; Available tags:
 ;   <label-disconnected> (default)
@@ -526,13 +527,13 @@ click-left = exec xfce4-power-manager
 type = internal/pulseaudio
 format-volume = <ramp-volume><label-volume>
 label-volume = %percentage%%
-label-volume-background = ${colors.orange}
+label-volume-background = ${colors.yellow}
 label-volume-foreground = ${colors.background}
 label-volume-padding-right = 1
 use-ui-max = false
 
 label-muted =  muted
-label-muted-background = ${colors.orange}
+label-muted-background = ${colors.yellow}
 label-muted-foreground = #666
 label-muted-padding = 1
 
@@ -542,7 +543,7 @@ ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-volume-3 = 
 ramp-volume-4 = 
-ramp-volume-background = ${colors.orange}
+ramp-volume-background = ${colors.yellow}
 ramp-volume-foreground = ${colors.background}
 ramp-volume-padding = 1
 

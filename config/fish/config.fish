@@ -4,6 +4,8 @@ if status is-interactive
 ### EXPORT ###
 set fish_greeting                                 # Supresses fish's intro message
 set TERM "xterm-256color"                         # Sets the terminal type
+#set EDITOR "emacs"                 		  # $EDITOR use Emacs in terminal
+#set VISUAL "emacs"              		  # $VISUAL use Emacs in GUI mode
 set EDITOR "nvim"                                 # $EDITOR use Visual-Code in terminal
 set VISUAL "nvim"                                 # $VISUAL use Visual-Code in GUI mode
 
@@ -137,6 +139,10 @@ alias pup='paru -Syu'
 alias yin='yay -S'
 alias pin='paru -S'
 
+#Source config
+alias fsource='source ~/.config/fish/config.fish'
+alias bsource='source ~/.bashrc'
+
 #apt command
 alias aptin='sudo apt install'
 alias aptrm='sudo apt purge'
@@ -155,6 +161,7 @@ alias wifi="nmtui"
 alias mod="sudo chmod +x"
 
 # git
+alias gst='git status'
 alias addup='git add -u'
 alias addall='git add .'
 alias branch='git branch'
@@ -200,6 +207,7 @@ alias jctl="journalctl -p 3 -xb"
 #Edit with your EDITOR for important configuration files
 alias nlightdm="sudo $EDITOR /etc/lightdm/lightdm.conf"
 alias npacman="sudo $EDITOR /etc/pacman.conf"
+alias nparu="sudo $EDITOR /etc/paru.conf"
 alias ngrub="sudo $EDITOR /etc/default/grub"
 alias nconfgrub="sudo $EDITOR /boot/grub/grub.cfg"
 alias nmkinitcpio="sudo $EDITOR /etc/mkinitcpio.conf"
@@ -210,6 +218,12 @@ alias nfstab="sudo $EDITOR /etc/fstab"
 alias nbash="$EDITOR ~/.bashrc"
 alias nzsh="$EDITOR ~/.zshrc"
 alias nfish="$EDITOR ~/.config/fish/config.fish"
+alias nbspwm="$EDITOR ~/.config/bspwm/bspwmrc"
+alias nsxhkd="$EDITOR ~/.config/bspwm/sxhkd/sxhkdrc"
+
+#Edit config file for ricing
+alias ni3="$EDITOR ~/.config/i3/config"
+alias npolybar="$EDITOR ~/.config/polybar/config"
 
 #systeminfo
 alias probe="sudo -E hw-probe -all -upload"
