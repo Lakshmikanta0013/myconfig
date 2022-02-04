@@ -144,21 +144,25 @@ alias fsource='source ~/.config/fish/config.fish'
 alias bsource='source ~/.bashrc'
 
 #apt command
-alias aptin='sudo apt install'
-alias aptrm='sudo apt purge'
-alias aptar='sudo apt --purge autoremove'
-alias apt='apt search'
-alias aptlist='apt list'
-alias aptinstalled= 'apt list --installed'
-alias aptup='sudo apt update && sudo apt upgrade'
-alias aptut='sudo apt update'
-alias aptug='sudo apt upgrade'
+  #alias aptin='sudo apt install'
+  #alias aptrm='sudo apt purge'
+  #alias aptar='sudo apt --purge autoremove'
+  #alias apt='apt search'
+  #alias aptlist='apt list'
+  #alias aptinstalled= 'apt list --installed'
+  #alias aptup='sudo apt update && sudo apt upgrade'
+  #alias aptut='sudo apt update'
+  #alias aptug='sudo apt upgrade'
 
 #wifi
 alias wifi="nmtui"
 
 #chmod
 alias mod="sudo chmod +x"
+
+#change ownership
+alias ownfi='sudo chown $USER'
+alias ownfo='sudo chown -R $USER'
 
 # git
 alias gst='git status'
@@ -259,8 +263,10 @@ alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
 # Or install it from the Arch User Repository: shell-color-scripts
-colorscript random
+#colorscript random
 
+#Custimize scripts
+neofetch
 
 end
 

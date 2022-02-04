@@ -51,7 +51,7 @@ workspace_layout default
 ##############################
 
 #border indicator on windows:
-new_window pixel 0
+new_window pixel 1
 
 # thin borders
 # hide_edge_borders both
@@ -166,7 +166,7 @@ for_window [urgent=latest] focus
 #
 # picom: https://wiki.archlinux.org/title/Picom
 # manpage: https://man.archlinux.org/man/picom.1.en
-exec_always picom -f
+#exec_always picom -f
 
 ############################################################
 ############################################################
@@ -186,13 +186,13 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --environment i3
 
 ############## start dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+bindsym $mod+d exec --no-startup-id dmenu_run -i -nb '#282a36' -nf '#bd93f9' -sb '#f1fa8c' -sf '#282a36' -fn 'Source Code Pro:Regular:pixelsize=16'
 
 
 ############### Application rofi: #################
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
-bindsym $mod+p exec rofi -show run \
+bindsym $mod+p exec rofi -modi drun -show drun \
 		-config ~/.config/rofi/col_singlerow.rasi
 
 #bindsym F9 exec rofi -modi drun -show drun \
@@ -220,8 +220,8 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 #exec --no-startup-id ~/.screenlayout/monitor.sh
 
 ############### set wallpaper   ######################
-exec --no-startup-id sleep 2 && nitrogen --restore
-#exec --no-startup-id feh --bg-fill --randomize ~/.bakground/* &
+#exec --no-startup-id sleep 2 && nitrogen --restore
+exec --no-startup-id feh --bg-fill --randomize ~/.background/* &
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -240,7 +240,8 @@ exec_always --no-startup-id autotiling
 ############ Autostart apps as you like
 
 exec --no-startup-id sleep 3 && alacritty
-exec --no-startup-id sleep 2 && firefox
+#exec --no-startup-id sleep 2 && firefox
+exec --no-startup-id sleep 2 && chromium
 exec --no-startup-id sleep 1 && pcmanfm
 exec --no-startup-id sleep 1 && thunar
 
@@ -297,12 +298,6 @@ bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to update i3)
 bindsym $mod+Shift+r restart
-
-# keybinding in fancy rofi (automated):
-bindsym F1 exec ~/.config/i3/scripts/keyhint-2
-# alternative
-# keybinding list in editor:
-#bindsym $mod+F1 exec xed ~/.config/i3/keybindings
 
 
 # Backlight control
@@ -364,24 +359,19 @@ bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 # volume
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
 
 # Pulse Audio controls
-
 #volume up
-#bindsym XF86AudioRaiseVolume exec pamixer -i 5 --allow-boost && dunstify -h string:x-dunst-stack-tag:volume volume: $(pamixer --get-volume)%
+#bindsym XF86AudioRaiseVolume exec pamixer -i 5 && dunstify -h string:x-dunst-stack-tag:volume volume: $(pamixer --get-volume)%
 #volume down
-#bindsym XF86AudioLowerVolume exec pamixer -d 5 --allow-boost && dunstify -h string:x-dunst-stack-tag:volume volume: $(pamixer --get-volume)%
+#bindsym XF86AudioLowerVolume exec pamixer -d 5 && dunstify -h string:x-dunst-stack-tag:volume volume: $(pamixer --get-volume)%
 #mute
 #bindsym XF86AudioMute exec pamixer -t && dunstify -h string:x-dunst-stack-tag:mute mute: $(pamixer --get-mute)!
 
 # gradular volume control
-bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
-bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
-
-# mute
-#bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
-#mute
-bindsym XF86AudioMute exec pamixer -t && notify-send "mute: $(pamixer --get-mute)"
+#bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
+#bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
 
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
@@ -389,10 +379,11 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Redirect sound to headphones
-#bindsym $mod+p exec /usr/local/bin/switch-audio-port
+#bindsym $mod+Shift+s exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+b exec firefox
+bindsym $mod+b exec chromium
+#bindsym $mod+b exec firefox
 bindsym $mod+e exec thunar
 bindsym Insert exec "scrot ~/Pictures/Screenshot/%Y-%m-%d-%T-screenshot.png"
 
@@ -428,7 +419,7 @@ set $ws10 "10"
 # bind program to workspace and focus to them on startup:
 assign [class="Alacritty"] $ws1
 assign [class="firefox"] $ws2
-assign [class="chromium"] $ws2
+assign [class="Chromium"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="Pcmanfm"] $ws3
 assign [class="code-oss"] $ws4
@@ -436,11 +427,12 @@ assign [class="Subl"] $ws4
 assign [class="VSCodium"]$ws4
 assign [class="Geany"] $ws4
 assign [class="Notepadqq"] $ws4
+assign [class="Gimp"] $ws8
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Alacritty] focus
 for_window [class=firefox] focus
-for_window [class=chromium] focus
+for_window [class=Chromium] focus
 for_window [class=Thunar] focus
 for_window [class=Pcmanfm] focus
 for_window [class=Geany] focus
@@ -448,6 +440,7 @@ for_window [class=code-oss] focus
 for_window [class=Subl] focus
 for_window [class=VSCodium] focus
 for_window [class=Notepadqq] focus
+for_window [class=Gimp] focus
 
 
 ###############
@@ -468,44 +461,29 @@ for_window [class=Notepadqq] focus
 ####################################
 ########   floating rules    #######
 ####################################
-  
-# floating enabled from some programs - find with xprop
-
-# for_window [class="Arcolinux-tweak-tool.py"] floating enable
-for_window [class="Bleachbit"] floating disable
-for_window [class="Blueberry.py"] floating enable
-for_window [class="Brasero"] floating disable
-for_window [class="Galculator"] floating enable
-for_window [class="Gnome-disks"] floating disable
-for_window [class="^Gnome-font-viewer$"] floating enable
-for_window [class="^Gpick$"] floating enable
-for_window [class="Hexchat"] floating disable
-for_window [class="Imagewriter"] floating enable
-for_window [class="Font-manager"] floating enable
-for_window [class="qt5ct|Lxappearance"] floating enable
-for_window [class="Nitrogen"] floating disable
-for_window [class="Pavucontrol"] floating disable
-for_window [class="Peek"] floating enable
-for_window [class="System-config-printer.py"] floating enable
-for_window [class="Unetbootin.elf"] floating enable
-for_window [class="Usb-creator-gtk"] floating enable
-for_window [class="^Vlc$"] floating disable
-for_window [class="Wine"] floating disable
-for_window [class="Xfburn"] floating disable
-for_window [class="Xfce4-taskmanager"] floating enable
-
-# for_window [instance="gimp"] floating disable
-for_window [instance="script-fu"] border normal
-
-for_window [title="Copying"] floating enable
-for_window [title="Deleting"] floating enable
-for_window [title="Moving"] floating enable
-for_window [title="^Terminator Preferences$"] floating enable
-
-# for_window [window_role="^gimp-toolbox-color-dialog$"] floating enable
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="^Preferences$"] floating enable
-for_window [window_role="setup"] floating enable
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="Clipgrab"] floating enable
+for_window [title="File Transfer*"] floating enable bo pixel 1 
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-gtk-greeter-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Oblogout"] fullscreen enable
+for_window [class="octopi"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Thus"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="(?i)virtualbox"] fullscreen enable 
+for_window [class="Xfburn"] floating enable 
+for_window [class="TelegramDesktop"] floating enable
 
 ######################################
 # color settings for bar and windows #
