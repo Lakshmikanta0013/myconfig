@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1488955845049151-1</unique-id>
+	<command>xfce4-terminal</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>application-vnd.flatpak</icon>
+	<name>Extract here</name>
+	<unique-id>1489091300385082-4</unique-id>
+	<command>tar xjf %n</command>
+	<description></description>
+	<patterns>*.tar.bz2;*.tbz2</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>action-unavailable</icon>
+	<name>Open folder as root</name>
+	<unique-id>1493475601060449-3</unique-id>
+	<command>pkexec thunar %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>accessories-notes</icon>
+	<name>Copy Contents to Clipboard</name>
+	<unique-id>1643991747749309-1</unique-id>
+	<command>cat &quot;%F&quot; | xclip -i -selection clipboard</command>
+	<description>Copies the contents of the selected file to the clipboard.</description>
+	<patterns>*</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon>folder-black-drag-accept</icon>
+	<name>Flatten Folder</name>
+	<unique-id>1643991884512949-2</unique-id>
+	<command>find . -mindepth 2 -type f -exec mv &quot;{}&quot; . \; &amp;&amp; find . -type d -empty -delete</command>
+	<description>Moves all files from sub-folders to parent (current) folder, then removes all empty folders inside the current folder.</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+</actions>

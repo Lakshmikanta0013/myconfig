@@ -1,0 +1,643 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[global/wm]
+;https://github.com/polybar/polybar/wiki/Configuration#global-wm-settings
+margin-bottom = 0
+margin-top = 0
+
+[settings]
+;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
+;throttle-output = 5
+;throttle-output-for = 10
+screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+; Define fallback values used by all module formats
+format-foreground =
+format-background =
+format-underline =
+format-overline =
+format-spacing =
+format-padding =
+format-margin =
+format-offset =
+
+; Enables pseudo-transparency for the bar
+; If set to true the bar can be transparent without a compositor.
+pseudo-transparency = false
+
+; vim:ft=dosini
+;==========================================================
+
+
+################################
+########    Colors    ##########
+################################
+
+[colors]
+;;Dracula Color scheme
+background = #282a36
+background-trans = #33f8f8f2
+background-alt = #44475a
+foreground = #f8f8f2
+foreground-alt = #ffffff
+primary = #ffb52a
+secondary = #ff5555
+alert = #ff5555
+red = #ff5555
+green= #50fa7b
+yellow = #f1fa8c
+comment = #6272a4
+cyan = #8be9fd
+orange = #ffb86c
+pink = #ff79c6
+purple = #de93f9
+
+################################################################################
+################################################################################
+############                         MAINBAR-I3                     ############
+################################################################################
+################################################################################
+
+[bar/mainbar-i3]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 24
+;offset-x = 1%
+;offset-y = 1%
+radius = 0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 0
+line-color = ${colors.red}
+
+border-size = 0
+border-color = #000000
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+;https://github.com/jaagr/polybar/wiki/Fonts
+font-0 = DejaVu Sans Book:pixelsize=12;1
+font-1 = Font Awesome 5 Free:pixelsize=12;2
+font-2 = Font Awesome 5 Free Solid:pixelsize=12;2
+font-3 = Font Awesome 5 Brands:pixelsize=12;2
+font-4 = FontAwesome:pixelsize=13;2
+;===============================================================================
+; modules: [ i3, xwindow , space , wifi , network , speedtest* , arch-update , arch-aur-updates , deb-update, cpu , memory
+;brightnessctl* , backlight , pulseaudio , pulseaudio-control , date , pavolume , powermenu , kdeconnect ]
+
+modules-left = i3 xwindow
+modules-center =
+modules-right = network wifi space pulseaudio brightnessctl space date powermenu
+;===============================================================================
+separator =
+
+;########## tray ######################
+
+tray-position = none
+tray-padding = 2
+tray-background = ${colors.yellow}
+tray-foreground = ${colors.background}
+
+;i3: Make the bar appear below windows
+;wm-restack = i3
+;override-redirect = true
+
+; Fallback click handlers that will be called if
+; there's no matching module handler found.
+click-left =
+click-middle =
+click-right =
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+double-click-left =
+double-click-middle =
+double-click-right =
+
+; Requires polybar to be built with xcursor support (xcb-util-cursor)
+; Possible values are:
+; - default   : The default pointer as before, can also be an empty string (default)
+; - pointer   : Typically in the form of a hand
+; - ns-resize : Up and down arrows, can be used to indicate scrolling
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+################################################################################
+################################################################################
+############                       MODULE LEFT                      ############
+################################################################################
+################################################################################
+[module/i3]
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = false
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = false
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = true
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = false
+
+; Set the scroll cycle direction
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+;Workspace Icons
+; ws-icon-[0-9]+ = label;icon
+; NOTE: The label needs to match the name of the i3 workspace
+;extra icons to choose from
+;http://fontawesome.io/cheatsheet/
+;             
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-default = 
+; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
+; you must also define a ws-icon-5.
+; NOTE: Icon will be available as the %icon% token inside label-*
+
+; Available tags:
+;   <label-state> (default) - gets replaced with
+;   <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.background}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-background = ${colors.purple}
+label-focused-foreground = ${colors.background}
+label-focused-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 1
+label-unfocused-background = ${colors.background-alt}
+label-unfocused-foreground = ${colors.purple}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${colors.red}
+label-urgent-padding = 1
+
+; Separator in between workspaces
+label-separator =|
+;===============================================================================
+
+[module/xwindow]
+;https://github.com/jaagr/polybar/wiki/Module:-xwindow
+type = internal/xwindow
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 45
+
+format-prefix = "  "
+;format-prefix-underline = ${colors.red}
+format-foreground = ${colors.purple}
+;format-background = ${colors.background-trans}
+
+################################################################################
+################################################################################
+############                 MODULES FREE SPACE                     ############
+################################################################################
+################################################################################
+[module/space]
+type = custom/text
+content = " | "
+content-foreground = ${colors.red}
+content-background = ${colors.background}
+
+
+################################################################################
+################################################################################
+############                 MODULES RIGHT                          ############
+################################################################################
+################################################################################
+
+[module/wifi]
+type = internal/network
+interface = wlp6s0
+interval = 1.0
+
+;============= run in terminal "nmtui" to get connected ========================
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+format-connected = <label-connected>
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+
+label-connected = "%{A1:nm-connection-editor:} %essid%%{A}"
+label-connected-background = ${colors.orange}
+label-connected-foreground = ${colors.background}
+label-connected-padding = 1
+
+label-disconnected = "%{A1:nm-connection-editor:}%{A}"
+label-disconnected-background = ${colors.pink}
+label-disconnected-foreground = #666
+label-disconnected-padding = 1
+
+;===============================================================================
+
+[module/network]
+type = internal/network
+interface = wlp6s0
+interval = 1.0
+
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+format-connected =<label-connected>
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+
+label-connected = " %downspeed%"
+label-connected-background = ${colors.pink}
+label-connected-foreground = ${colors.background}
+label-connected-padding = 1
+
+label-disconnected = "  disconnected"
+label-disconnected-background = ${colors.pink}
+label-disconnected-foreground = #666
+label-disconnected-padding = 1
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+;===============================================================================
+
+[module/speedtest]
+;Dependencies
+;yay -S python speedtest-cli
+type = custom/script
+exec-if = hash speedtest
+exec = "~/.config/polybar/scripts/polybar-speedtest"
+interval = 1
+;===============================================================================
+
+[module/arch-update]
+type = custom/script
+exec = ~/polybar-scripts/updates-pacman-aurhelper.sh
+interval = 600
+;===============================================================================
+
+[module/arch-aur-updates]
+type = custom/script
+exec = ~/.config/polybar/scripts/check-all-updates.sh
+interval = 600
+label =: %output%
+label-padding-right = 1
+format-foreground = ${colors.background}
+format-background = ${colors.red}
+format-prefix = ""
+format-prefix-padding = 1
+;===============================================================================
+
+[module/deb-update]
+type = custom/script
+exec = (sleep 90s && python ~/.config/polybar/scripts/deb-update.py)
+interval = 7200
+format-prefix = " "
+tail = true
+;===============================================================================
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+format-prefix = ""
+format-prefix-background = ${colors.cyan}
+format-prefix-foreground = ${colors.background}
+format-prefix-padding = 1
+
+label = %{T1}%percentage:2%%%{T-}
+label-background = ${colors.background-alt}
+label-foreground = ${colors.foreground}
+label-padding = 1
+label-underline = ${colors.cyan}
+
+;===============================================================================
+
+[module/memory]
+type = internal/memory
+interval = 1
+
+format-prefix = ""
+format-prefix-background = ${colors.purple}
+format-prefix-foreground = ${colors.background}
+format-prefix-padding = 1
+
+label = %{T1}%gb_free%%{T-}
+label-background = ${colors.background-alt}
+label-foreground = ${colors.foreground}
+label-padding = 1
+label-underline = ${colors.purple}
+;===============================================================================
+
+[module/brightnessctl]
+;Dependencies "brightnessctl"
+; sudo pacman -S brightnessctl
+
+type = custom/script
+exec = ~/.config/polybar/scripts/brightnessctl.sh
+
+scroll-up = exec brightnessctl set +5%
+scroll-down = exec brightnessctl set 5%-
+interval = 0.5
+
+label = %output%
+label-background = ${colors.green}
+label-foreground = ${colors.background}
+label-padding = 1
+;===============================================================================
+
+[module/backlight]
+;https://github.com/jaagr/polybar/wiki/Module:-backlight
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
+
+; Enable changing the backlight with the scroll wheel
+; Default: false
+enable-scroll = true
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <label>
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+format-prefix = ""
+format-prefix-background = ${colors.green}
+format-prefix-foreground = ${colors.background}
+format-prefix-padding = 1
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+label-background = ${colors.green}
+label-foreground = ${colors.background}
+label-padding-right = 1
+;label-underline = ${colors.green}
+
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+ramp-background = ${colors.orange}
+ramp-foreground = ${colors.background}
+ramp-padding = 0
+
+; Only applies if <bar> is used
+bar-width = 4
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
+
+;Right and Middle click
+click-left = exec xfce4-power-manager
+; click-middle =
+;===============================================================================
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <ramp-volume><label-volume>
+label-volume = %percentage%%
+label-volume-background = ${colors.yellow}
+label-volume-foreground = ${colors.background}
+label-volume-padding-right = 1
+use-ui-max = false
+
+label-muted =  muted
+label-muted-background = ${colors.yellow}
+label-muted-foreground = #666
+label-muted-padding = 1
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+ramp-volume-background = ${colors.yellow}
+ramp-volume-foreground = ${colors.background}
+ramp-volume-padding = 1
+
+;Right and Middle click
+click-right = pavucontrol
+; click-middle =
+;===============================================================================
+
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+label-background = ${colors.orange}
+label-foreground = ${colors.background}
+label-padding = 1
+label-underline = ${colors.red}
+
+# Icons mixed from Font Awesome 5 and Material Icons
+# You can copy-paste your options for each possible action, which is more
+# trouble-free but repetitive, or apply only the relevant ones (for example
+# --sink-blacklist is only needed for next-sink).
+exec = pulseaudio-control --icons-volume " , " --icon-muted " " --sink-nicknames-from "device.description" --sink-nickname "alsa_output.pci-0000_00_1b.0.analog-stereo:  Speakers" --sink-nickname "alsa_output.usb-Kingston_HyperX_Virtual_Surround_Sound_00000000-00.analog-stereo:  Headphones" listen
+click-right = exec pavucontrol &
+click-left = pulseaudio-control togmute
+click-middle = pulseaudio-control --sink-blacklist "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2" next-sink
+scroll-up = pulseaudio-control --volume-max 100 up
+scroll-down = pulseaudio-control --volume-max 100 down
+
+;===============================================================================
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %d %a %b
+date-alt = " %Y-%m-%d"
+
+time = %H:%M %p
+time-alt = %A %d %b %Y
+
+format-prefix = ""
+format-prefix-background = ${colors.pink}
+format-prefix-foreground = ${colors.background}
+format-prefix-padding = 1
+
+label = %time%
+label-background = ${colors.background-alt}
+label-foreground = ${colors.foreground}
+label-padding = 1
+label-underline = ${colors.pink}
+;===================================================
+
+[module/pavolume]
+type = custom/script
+tail = true
+label = %output%
+exec = ~/.config/polybar/scripts/pavolume.sh --listen
+click-right = exec pavucontrol
+click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
+scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
+scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
+format-foreground = #fefefe
+format-background = #668bd7
+
+;===================================================
+
+[module/powermenu]
+type = custom/script
+tail = true
+exec = echo "%{T2}%{T-}"
+label-background = ${colors.red}
+label-foreground = ${colors.background}
+label-padding = 1
+click-left = exec ~/.config/polybar/scripts/powermenu
+;===============================================================================
+
+[module/kdeconnect]
+;Dependencies
+;sudo pacman -S rofi kdeconnect qt5-tools
+type = custom/script
+exec = "~/.config/polybar/scripts/polybar-kdeconnect.sh -d"
+tail = true
+;format-background = ${colors.red}
+;format-foreground = ${colors.background}
+;format-padding = 1
+;===============================================================================
