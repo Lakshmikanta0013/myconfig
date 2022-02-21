@@ -6,8 +6,12 @@ set fish_greeting                                 # Supresses fish's intro messa
 set TERM "xterm-256color"                         # Sets the terminal type
 #set EDITOR "emacs"                 		  # $EDITOR use Emacs in terminal
 #set VISUAL "emacs"              		  # $VISUAL use Emacs in GUI mode
-set EDITOR "nvim"                                 # $EDITOR use Visual-Code in terminal
-set VISUAL "nvim"                                 # $VISUAL use Visual-Code in GUI mode
+set EDITOR "nvim"                                 # $EDITOR use Neovim in terminal
+set VISUAL "nvim"                                 # $VISUAL use your editor of choice in GUI mode
+
+#Snap Directory for Debian
+set PATH /var/lib/snapd/snap/bin $PATH
+set XDG_DATA_DIRS /var/lib/snapd/desktop/:$XDG_DATA_DIRS
 
 ### AUTOCOMPLETE AND HIGHLIGHT COLORS ###
 set fish_color_normal '#8be9fd'
@@ -90,7 +94,7 @@ function unzip-cd --argument zipfile
 end
 
 ########################################################################
-############### 				ALIASES					 ###############
+###############               ALIASES			 ###############
 ########################################################################
 
 
@@ -129,30 +133,32 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 #pacman command 
-alias pacins='sudo pacman -S'
-alias pacrmv='sudo pacman -Rns'
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  			# remove orphaned packages
-alias parurmv='paru -Rns'
-alias pacup='sudo pacman -Syu'
-alias yup='yay -Syu'
-alias pup='paru -Syu'
-alias yin='yay -S'
-alias pin='paru -S'
+#alias pacins='sudo pacman -S'
+#alias pacrmv='sudo pacman -Rns'
+#alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  			# remove orphaned packages
+#alias parurmv='paru -Rns'
+#alias pacup='sudo pacman -Syu'
+#alias yup='yay -Syu'
+#alias pup='paru -Syu'
+#alias yin='yay -S'
+#alias pin='paru -S'
 
 #Source config
 alias fsource='source ~/.config/fish/config.fish'
 alias bsource='source ~/.bashrc'
 
 #apt command
-  #alias aptin='sudo apt install'
-  #alias aptrm='sudo apt purge'
-  #alias aptar='sudo apt --purge autoremove'
-  #alias apt='apt search'
-  #alias aptlist='apt list'
-  #alias aptinstalled= 'apt list --installed'
-  #alias aptup='sudo apt update && sudo apt upgrade'
-  #alias aptut='sudo apt update'
-  #alias aptug='sudo apt upgrade'
+alias pacins='sudo apt install'
+alias pacrmv='sudo apt purge'
+alias sys-autoremove='sudo apt --purge autoremove'
+alias pacsearch='sudo apt search'
+alias paclist='sudo apt list'
+alias pacinstalled='sudo apt list --installed'
+alias sysupgrade='sudo apt update && sudo apt upgrade'
+alias update='sudo apt update'
+alias upgrade='sudo apt upgrade'
+alias snap-ins='sudo snap install'
+alias snap-rm='sudo snap remove'
 
 #wifi
 alias wifi="nmtui"
@@ -216,18 +222,22 @@ alias ngrub="sudo $EDITOR /etc/default/grub"
 alias nconfgrub="sudo $EDITOR /boot/grub/grub.cfg"
 alias nmkinitcpio="sudo $EDITOR /etc/mkinitcpio.conf"
 alias nmirrorlist="sudo $EDITOR /etc/pacman.d/mirrorlist"
-alias narcomirrorlist='sudo nano /etc/pacman.d/arcolinux-mirrorlist'
+alias narcomirrorlist='sudo $EDITOR /etc/pacman.d/arcolinux-mirrorlist'
 alias nsddm="sudo $EDITOR /etc/sddm.conf"
 alias nfstab="sudo $EDITOR /etc/fstab"
-alias nbash="$EDITOR ~/.bashrc"
-alias nzsh="$EDITOR ~/.zshrc"
-alias nfish="$EDITOR ~/.config/fish/config.fish"
-alias nbspwm="$EDITOR ~/.config/bspwm/bspwmrc"
-alias nsxhkd="$EDITOR ~/.config/bspwm/sxhkd/sxhkdrc"
+alias nbash="$VISUAL ~/.bashrc"
+alias nzsh="$VISUAL ~/.zshrc"
+alias nfish="$VISUAL ~/.config/fish/config.fish"
+alias nbspwm="$VISUAL ~/.config/bspwm/bspwmrc"
+alias nsxhkd="$VISUAL ~/.config/bspwm/sxhkd/sxhkdrc"
+alias nsourcelist="sudo $EDITOR /etc/apt/sources.list"
 
 #Edit config file for ricing
-alias ni3="$EDITOR ~/.config/i3/config"
-alias npolybar="$EDITOR ~/.config/polybar/config"
+alias ni3="$VISUAL ~/.config/i3/config"
+alias npolybar="$VISUAL ~/.config/polybar/config"
+alias nkitty="$VISUAL ~/.config/kitty/kitty.conf"
+alias nalacritty="$VISUAL ~/.config/alacritty/alacritty.yml"
+alias npicom="$VISUAL ~/.config/picom/picom.conf"
 
 #systeminfo
 alias probe="sudo -E hw-probe -all -upload"

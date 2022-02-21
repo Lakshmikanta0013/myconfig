@@ -150,14 +150,15 @@ alias bsource='source ~/.bashrc'
 #apt command
 alias pacins='sudo apt install'
 alias pacrmv='sudo apt purge'
-alias cleanup='sudo apt --purge autoremove'
+alias sys-autoremove='sudo apt --purge autoremove'
 alias pacsearch='sudo apt search'
 alias paclist='sudo apt list'
 alias pacinstalled='sudo apt list --installed'
-alias sysup='sudo apt update && sudo apt upgrade'
-alias sysut='sudo apt update'
-alias sysug='sudo apt upgrade'
+alias sysupgrade='sudo apt update && sudo apt upgrade'
+alias update='sudo apt update'
+alias upgrade='sudo apt upgrade'
 alias snap-ins='sudo snap install'
+alias snap-rm='sudo snap remove'
 
 #wifi
 alias wifi="nmtui"
@@ -229,10 +230,14 @@ alias nzsh="$VISUAL ~/.zshrc"
 alias nfish="$VISUAL ~/.config/fish/config.fish"
 alias nbspwm="$VISUAL ~/.config/bspwm/bspwmrc"
 alias nsxhkd="$VISUAL ~/.config/bspwm/sxhkd/sxhkdrc"
+alias nsourcelist="sudo $EDITOR /etc/apt/sources.list"
 
 #Edit config file for ricing
 alias ni3="$VISUAL ~/.config/i3/config"
 alias npolybar="$VISUAL ~/.config/polybar/config"
+alias nkitty="$VISUAL ~/.config/kitty/kitty.conf"
+alias nalacritty="$VISUAL ~/.config/alacritty/alacritty.yml"
+alias npicom="$VISUAL ~/.config/picom/picom.conf"
 
 #systeminfo
 alias probe="sudo -E hw-probe -all -upload"

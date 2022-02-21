@@ -52,7 +52,6 @@ workspace_layout default
 
 #border indicator on windows:
 new_window pixel 2
-
 # thin borders
 # hide_edge_borders both
 
@@ -61,8 +60,8 @@ new_window pixel 2
 #gaps outer 2
 
 # show window title bars (not officially supported with i3gaps)
-#default_border normal
-
+#default_border pixel 2
+#defaul_floating_border pixel 2
 # window title alignment
 #title_align center
 
@@ -166,7 +165,7 @@ for_window [urgent=latest] focus
 #
 # picom: https://wiki.archlinux.org/title/Picom
 # manpage: https://man.archlinux.org/man/picom.1.en
-#exec_always picom -f
+exec_always picom -f --config ~/.config/picom/picom.conf
 
 ############################################################
 ############################################################
@@ -239,7 +238,7 @@ exec_always --no-startup-id autotiling
 
 ############ Autostart apps as you like
 
-exec --no-startup-id sleep 3 && xfce4-terminal
+exec --no-startup-id sleep 3 && kitty #xfce4-terminal
 exec --no-startup-id sleep 2 && Firefox-esr
 #exec --no-startup-id sleep 2 && chromium
 #exec --no-startup-id sleep 1 && pcmanfm
@@ -279,7 +278,7 @@ bindsym $mod+r mode "resize"
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec kitty #xfce4-terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -423,6 +422,7 @@ set $ws10 "10"
 # bind program to workspace and focus to them on startup:
 assign [class="Alacritty"] $ws1
 assign [class="Xfce4-terminal"] $ws1
+assign [class="kitty"] $ws1
 assign [class="Firefox-esr"] $ws2
 assign [class="Chromium"] $ws2
 assign [class="Thunar"] $ws3
@@ -436,6 +436,7 @@ assign [class="Gedit"] $ws4
 assign [class="Notepadqq"] $ws4
 assign [class="Gimp"] $ws8
 assign [class="libreoffice-writer"] $ws5
+assign [class="vlc"] $ws7
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Alacritty] focus
@@ -512,10 +513,10 @@ set $purple     #de93f9
 
 # define colors for windows:
 #                          border          background      text            indicator
-client.focused             $bgcolor        $bgcolor        $textcolor      $bgcolor
-client.unfocused           $ibgcolor       $ibgcolor       $textcolor      $ibgcolor
-client.focused_inactive    $ibgcolor       $ibgcolor       $itextcolor     $ibgcolor
-client.urgent              $red            $red            $textcolor      $red
+client.focused             $ibgcolor        $bgcolor        $textcolor      $bgcolor
+client.unfocused           $bgcolor         $ibgcolor       $textcolor      $ibgcolor
+client.focused_inactive    $bgcolor         $ibgcolor       $itextcolor     $ibgcolor
+client.urgent              $red             $red            $textcolor      $red
 
 ############################################
 # bar settings (input comes from i3blocks) #

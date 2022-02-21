@@ -115,7 +115,7 @@ font-4 = FontAwesome:pixelsize=13;2
 
 modules-left = i3 xwindow
 modules-center =
-modules-right = network wifi space pulseaudio brightnessctl space date powermenu
+modules-right = network wifi space pulseaudio brightnessctl space uptime date powermenu
 ;===============================================================================
 separator =
 
@@ -148,6 +148,81 @@ double-click-right =
 ; - ns-resize : Up and down arrows, can be used to indicate scrolling
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+
+################################################################################
+################################################################################
+############                  MAINBAR-BSPWM                         ############
+################################################################################
+################################################################################
+
+[bar/mainbar-bspwm]
+;monitor = ${env:MONITOR}
+;monitor-fallback = HDMI1
+width = 100%
+height = 24
+;offset-x = 1%
+;offset-y = 1%
+radius = 0
+fixed-center = false
+bottom = false
+separator = 
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 0
+line-color = ${colors.red}
+
+wm-restack = bspwm
+override-redirect = false
+
+; Enable support for inter-process messaging
+; See the Messaging wiki page for more details.
+enable-ipc = true
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+;https://github.com/jaagr/polybar/wiki/Fonts
+font-0 = DejaVu Sans Book:pixelsize=12;1
+font-1 = Font Awesome 5 Free:pixelsize=12;2
+font-2 = Font Awesome 5 Free Solid:pixelsize=12;2
+font-3 = Font Awesome 5 Brands:pixelsize=12;2
+font-4 = FontAwesome:pixelsize=12;2
+
+;===============================================================================
+; modules: [ i3, xwindow , space , wifi , network , speedtest* , arch-update , arch-aur-updates , deb-update, cpu , memory uptime 
+;brightnessctl* , backlight , pulseaudio , pulseaudio-control , date , pavolume , powermenu , kdeconnect ]
+
+modules-left = bspwm xwindow
+modules-center =
+modules-right = network wifi space pulseaudio brightnessctl space uptime date powermenu
+;===============================================================================
+
+################## Tray  ###########
+
+tray-detached = false
+tray-offset-x = 0
+tray-offset-y = 0
+tray-position = none
+tray-padding = 2
+tray-maxsize = 20
+tray-scale = 1.0
+tray-background = ${colors.yellow}
+tray-foreground = ${colors.background}
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+cursor-scrome = ns-resize
 
 ################################################################################
 ################################################################################
@@ -209,11 +284,11 @@ ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
 ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-default = 
+ws-icon-8 = 9;
+ws-icon-default = 
 ; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
 ; you must also define a ws-icon-5.
 ; NOTE: Icon will be available as the %icon% token inside label-*
@@ -282,6 +357,96 @@ label-urgent-padding = 1
 ; Separator in between workspaces
 label-separator =|
 ;===============================================================================
+
+
+################################################################################
+################################################################################
+############                       MODULE BSPWM                     ############
+################################################################################
+################################################################################
+
+[module/bspwm]
+type = internal/bspwm
+
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+pin-workspaces = true
+fuzzy-match = true
+
+;Workspace Icons
+; ws-icon-[0-9]+ = label;icon
+; NOTE: The label needs to match the name of the i3 workspace
+;extra icons to choose from
+;http://fontawesome.io/cheatsheet/
+;             
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-default = 
+; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
+; you must also define a ws-icon-5.
+; NOTE: Icon will be available as the %icon% token inside label-*
+
+; Available tags:
+;   <label-monitor>
+;   <label-state> - gets replaced with <label-(focused|urgent|occupied|empty)>
+;   <label-mode> - gets replaced with <label-(monocle|tiled|fullscreen|floating|locked|sticky|private)>
+; Default: <label-state>
+format = <label-state> <label-mode>
+
+label-focused = %icon%
+label-focused-background = ${colors.purple}
+label-focused-padding = 1
+label-focused-foreground = ${colors.background}
+
+label-occupied = %icon%
+label-occupied-padding = 1
+label-occupied-background = ${colors.background-alt}
+label-occupied-foreground = ${colors.foreground}
+
+label-urgent = %icon%
+label-urgent-padding = 1
+label-urgent-background = ${colors.red}
+label-urgent-foreground = ${colors.background}
+
+label-empty = %icon%
+label-empty-foreground = ${colors.background-trans}
+label-empty-padding = 1
+label-empty-background = ${colors.background}
+
+label-monocle = "  "
+label-monocle-foreground = ${colors.foreground}
+label-tiled = "  "
+label-tiled-foreground = ${colors.foreground}
+label-fullscreen = "  "
+label-fullscreen-foreground = ${colors.foreground}
+label-floating = "  "
+label-floating-foreground = ${colors.foreground}
+label-pseudotiled = "  "
+label-pseudotiled-foreground = ${colors.foreground}
+label-locked = "  "
+label-locked-foreground = ${colors.foreground}
+label-sticky = "  "
+label-sticky-foreground = ${colors.foreground}
+label-private =  "     "
+label-private-foreground = ${colors.foreground}
+
+; Separator in between workspaces
+;label-separator = | 
+;label-separator-padding = 2 
+;label-separator-foreground = ${colors.yellow}
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+;===========================================================================================
 
 [module/xwindow]
 ;https://github.com/jaagr/polybar/wiki/Module:-xwindow
@@ -463,6 +628,22 @@ label-foreground = ${colors.foreground}
 label-padding = 1
 label-underline = ${colors.purple}
 ;===============================================================================
+
+[module/uptime]
+type = custom/script
+exec = uptime | grep -ohe 'load average[s:][: ].*' | awk '{ print $3" "$4" "$5"," }' | sed 's/,//g'
+interval = 100
+
+;HOW TO SET IT MINIMAL 10 CHARACTERS - HIDDEN BEHIND SYSTEM ICONS
+;label = %output%
+label = %output:10%
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "  "
+format-prefix-foreground = #62FF00
+format-underline = #62FF00
+;=================================================================================
 
 [module/brightnessctl]
 ;Dependencies "brightnessctl"
