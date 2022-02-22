@@ -189,6 +189,9 @@ alias newtag='git tag -a'
 # arch user "yay -S almh-git"
 alias maintaincence='almh.py'
 
+#list all drive with UUID
+alias list_drive='lsblk -f'
+
 #continue download
 alias wget="wget -c"
 
