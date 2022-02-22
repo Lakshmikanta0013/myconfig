@@ -145,4 +145,5 @@ super + e
 # run program launcher
 super + d
 	dmenu_run
-
+super + p
+	rofi -no-config -no-lazy-grab -modi drun -show drun -theme ~/.config/rofi/dt-dmenu.rasi

@@ -229,7 +229,7 @@ alias nbash="$VISUAL ~/.bashrc"
 alias nzsh="$VISUAL ~/.zshrc"
 alias nfish="$VISUAL ~/.config/fish/config.fish"
 alias nbspwm="$VISUAL ~/.config/bspwm/bspwmrc"
-alias nsxhkd="$VISUAL ~/.config/bspwm/sxhkd/sxhkdrc"
+alias nsxhkd="$VISUAL ~/.config/sxhkd/sxhkdrc"
 alias nsourcelist="sudo $EDITOR /etc/apt/sources.list"
 
 #Edit config file for ricing
@@ -269,6 +269,10 @@ alias yta-opus="youtube-dl --extract-audio --audio-format opus "
 alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
+
+
+############### FLATPAK APP #############
+alias oomox="flatpak run com.github.themix_project.Oomox &"
 
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
