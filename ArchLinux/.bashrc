@@ -1,11 +1,20 @@
 #
 # ~/.bashrc
-#
+#     ██╗      █████╗ ██╗  ██╗███████╗██╗  ██╗███╗   ███╗██╗██╗  ██╗ █████╗ ███╗   ██╗████████╗ █████╗
+#     ██║     ██╔══██╗██║ ██╔╝██╔════╝██║  ██║████╗ ████║██║██║ ██╔╝██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗
+#     ██║     ███████║█████╔╝ ███████╗███████║██╔████╔██║██║█████╔╝ ███████║██╔██╗ ██║   ██║   ███████║
+#     ██║     ██╔══██║██╔═██╗ ╚════██║██╔══██║██║╚██╔╝██║██║██╔═██╗ ██╔══██║██║╚██╗██║   ██║   ██╔══██║
+#     ███████╗██║  ██║██║  ██╗███████║██║  ██║██║ ╚═╝ ██║██║██║  ██╗██║  ██║██║ ╚████║   ██║   ██║  ██║
+#     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝
+
+#Locale for terminal
+LANG="en_IN.utf8"
+export LANG
 
 ### EXPORT
-export TERM="xterm-256color"                      # getting proper colors
-export EDITOR="nvim"              # $EDITOR use Emacs in terminal
-export VISUAL="code"           # $VISUAL use Emacs in GUI mode
+export TERM="xterm-256color"             # getting proper colors
+export EDITOR="nvim"                     # $EDITOR use NeoVim in terminal
+export VISUAL="nvim"                     # $VISUAL use NeoVim in GUI mode
 
 ### SET MANPAGER
 ### Uncomment only one of these!
@@ -88,7 +97,7 @@ ex ()
 
 
 ########################################################################
-############### 				ALIASES					 ###############
+###############                 ALIASES                  ###############
 ########################################################################
 
 
@@ -123,27 +132,16 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-#pacman command 
+#pacman command
 alias pacins='sudo pacman -S'
 alias pacrmv='sudo pacman -Rns'
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  			# remove orphaned packages
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)'             # remove orphaned packages
 alias parurmv='paru -Rns'
 alias pacup='sudo pacman -Syu'
 alias yup='yay -Syu'
 alias pup='paru -Syu'
 alias yin='yay -S'
 alias pin='paru -S'
-
-#apt command
-alias aptin='sudo apt install'
-alias aptrm='sudo apt purge'
-alias aptar='sudo apt --purge autoremove'
-alias apt='apt search'
-alias aptlist='apt list'
-alias aptinstalled= 'apt list --installed'
-alias aptup='sudo apt update && sudo apt upgrade'
-alias aptut='sudo apt update'
-alias aptug='sudo apt upgrade'
 
 #Custom Clear command
 alias clr='clear;colorscript random'
@@ -242,6 +240,18 @@ alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 
+#Customized start programe
+  #neofetch
+  #figlet -c -f doom 'Lakshmikanta'
+  #fm6000 -random -color random
+  #colorscript random
+
+#starship startup scripts
+  #eval "$(starship init bash)"
 
 #3 Set fish as default prompt
 exec fish
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION

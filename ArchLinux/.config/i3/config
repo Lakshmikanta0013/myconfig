@@ -1,3 +1,12 @@
+#
+#           ██╗                     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+#           ██║                     |L|a|k|s|h|m|i|k|a|n|t|a|
+#           ██║                     +-+-+-+-+ +-+-+-+-+-+-+ -+-+-+-+-+
+#           ██║                     |A|r|c|h| |c|o|n|f|i|g|
+#           ███████╗       +-+-+-+-+ +-+-+-+-+-+-+-+-+-+-+-+
+#               ╚══════╝
+#
+
 ################# Start of all the settings
 
 # KEY DEFINITIONS TO REMEMBER
@@ -118,28 +127,28 @@ bindsym $mod+Shift+9    move container to workspace  $ws9
 bindsym $mod+Shift+0    move container to workspace  $ws10
 
 # move focused container to workspace with numpad keys
-bindcode $mod+Shift+Mod2+87 	move container to workspace  $ws1
-bindcode $mod+Shift+Mod2+88 	move container to workspace  $ws2
-bindcode $mod+Shift+Mod2+89 	move container to workspace  $ws3
-bindcode $mod+Shift+Mod2+83 	move container to workspace  $ws4
-bindcode $mod+Shift+Mod2+84 	move container to workspace  $ws5
-bindcode $mod+Shift+Mod2+85 	move container to workspace  $ws6
-bindcode $mod+Shift+Mod2+79 	move container to workspace  $ws7
-bindcode $mod+Shift+Mod2+80 	move container to workspace  $ws8
-bindcode $mod+Shift+Mod2+81 	move container to workspace  $ws9
-bindcode $mod+Shift+Mod2+90 	move container to workspace  $ws10
+bindcode $mod+Shift+Mod2+87     move container to workspace  $ws1
+bindcode $mod+Shift+Mod2+88     move container to workspace  $ws2
+bindcode $mod+Shift+Mod2+89     move container to workspace  $ws3
+bindcode $mod+Shift+Mod2+83     move container to workspace  $ws4
+bindcode $mod+Shift+Mod2+84     move container to workspace  $ws5
+bindcode $mod+Shift+Mod2+85     move container to workspace  $ws6
+bindcode $mod+Shift+Mod2+79     move container to workspace  $ws7
+bindcode $mod+Shift+Mod2+80     move container to workspace  $ws8
+bindcode $mod+Shift+Mod2+81     move container to workspace  $ws9
+bindcode $mod+Shift+Mod2+90     move container to workspace  $ws10
 
 # move focused container to workspace with numpad keys
-bindcode $mod+Shift+87 	 move container to workspace  $ws1
-bindcode $mod+Shift+88 	 move container to workspace  $ws2
-bindcode $mod+Shift+89 	 move container to workspace  $ws3
-bindcode $mod+Shift+83 	 move container to workspace  $ws4
-bindcode $mod+Shift+84 	 move container to workspace  $ws5
-bindcode $mod+Shift+85 	 move container to workspace  $ws6
-bindcode $mod+Shift+79 	 move container to workspace  $ws7
-bindcode $mod+Shift+80 	 move container to workspace  $ws8
-bindcode $mod+Shift+81 	 move container to workspace  $ws9
-bindcode $mod+Shift+90 	 move container to workspace  $ws10
+bindcode $mod+Shift+87   move container to workspace  $ws1
+bindcode $mod+Shift+88   move container to workspace  $ws2
+bindcode $mod+Shift+89   move container to workspace  $ws3
+bindcode $mod+Shift+83   move container to workspace  $ws4
+bindcode $mod+Shift+84   move container to workspace  $ws5
+bindcode $mod+Shift+85   move container to workspace  $ws6
+bindcode $mod+Shift+79   move container to workspace  $ws7
+bindcode $mod+Shift+80   move container to workspace  $ws8
+bindcode $mod+Shift+81   move container to workspace  $ws9
+bindcode $mod+Shift+90   move container to workspace  $ws10
 
 ############# switch Workspace  ###############
 bindsym $mod+Tab workspace back_and_forth
@@ -166,7 +175,7 @@ for_window [urgent=latest] focus
 #
 # picom: https://wiki.archlinux.org/title/Picom
 # manpage: https://man.archlinux.org/man/picom.1.en
-#exec_always picom -f
+exec_always picom -f
 
 ############################################################
 ############################################################
@@ -186,20 +195,20 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --environment i3
 
 ############## start dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -i -nb '#282a36' -nf '#bd93f9' -sb '#f1fa8c' -sf '#282a36' -fn 'Source Code Pro:Regular:pixelsize=16'
+bindsym $mod+d exec --no-startup-id dmenu_run
 
 
 ############### Application rofi: #################
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
 bindsym $mod+p exec rofi -modi drun -show drun \
-		-config ~/.config/rofi/col_singlerow.rasi
+        -config ~/.config/rofi/col_singlerow.rasi
 
 #bindsym F9 exec rofi -modi drun -show drun \
-#		-config ~/.config/rofi/rofidmenu.rasi
+#       -config ~/.config/rofi/rofidmenu.rasi
 
 bindsym $mod+t exec rofi -show window \
-		-config ~/.config/rofi/rofidmenu.rasi
+        -config ~/.config/rofi/rofidmenu.rasi
 
 ########## num lock activated
 exec --no-startup-id numlockx on
@@ -240,8 +249,8 @@ exec_always --no-startup-id autotiling
 ############ Autostart apps as you like
 
 exec --no-startup-id sleep 3 && alacritty
-#exec --no-startup-id sleep 2 && firefox
-exec --no-startup-id sleep 2 && chromium
+exec --no-startup-id sleep 2 && firefox
+#exec --no-startup-id sleep 2 && chromium
 exec --no-startup-id sleep 1 && pcmanfm
 exec --no-startup-id sleep 1 && thunar
 
@@ -382,8 +391,8 @@ bindsym XF86AudioPrev exec playerctl previous
 #bindsym $mod+Shift+s exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+b exec chromium
-#bindsym $mod+b exec firefox
+#bindsym $mod+b exec chromium
+bindsym $mod+b exec firefox
 bindsym $mod+e exec thunar
 bindsym Insert exec "scrot ~/Pictures/Screenshot/%Y-%m-%d-%T-screenshot.png"
 
@@ -424,9 +433,11 @@ assign [class="Thunar"] $ws3
 assign [class="Pcmanfm"] $ws3
 assign [class="code-oss"] $ws4
 assign [class="Subl"] $ws4
+assign [class="Mousepad"] $ws4
 assign [class="VSCodium"]$ws4
 assign [class="Geany"] $ws4
 assign [class="Notepadqq"] $ws4
+assign [class="Atom"] $ws4
 assign [class="Gimp"] $ws8
 
 # automatic set focus new window if it opens on another workspace then the current:
@@ -438,8 +449,10 @@ for_window [class=Pcmanfm] focus
 for_window [class=Geany] focus
 for_window [class=code-oss] focus
 for_window [class=Subl] focus
+for_window [class=Mousepad] focus
 for_window [class=VSCodium] focus
 for_window [class=Notepadqq] focus
+for_window [class=Atom] focus
 for_window [class=Gimp] focus
 
 
@@ -462,8 +475,9 @@ for_window [class=Gimp] focus
 ########   floating rules    #######
 ####################################
 for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable bo pixel 1 
+for_window [title="File Transfer*"] floating enable border pixel 1
+for_window [class="__main__.py"] floating enable resize set 800 640 border normal
+for_window [window_role="GtkFileChooserDialog"] floating enable resize set 800 640 border normal
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
@@ -476,38 +490,54 @@ for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="(?i)virtualbox"] fullscreen enable 
-for_window [class="Xfburn"] floating enable 
+for_window [class="Xfburn"] floating enable
 for_window [class="TelegramDesktop"] floating enable
+for_window [class="Eog"] floating enable
+for_window [class="Xfce4-taskmanager"] floating enable
 
 ######################################
 # color settings for bar and windows #
 ######################################
 
 # //// Dracula Color ////
-set $bgcolor    #282a36
-set $ibgcolor   #44475a
-set $textcolor  #f8f8f2
-set $itextcolor #6272a4
-set $red        #ff5555
-set $yellow     #f1fa8c
-set $green      #50fa7b
-set $cyan       #8be9fd
-set $orange     #ffb86c
-set $pink       #ff79c6
-set $purple     #de93f9
+#set $bgcolor    #282a36
+#set $ibgcolor   #44475a
+#set $textcolor  #f8f8f2
+#set $itextcolor #6272a4
+#set $red        #ff5555
+#set $yellow     #f1fa8c
+#set $green      #50fa7b
+#set $cyan       #8be9fd
+#set $orange     #ffb86c
+#set $pink       #ff79c6
+#set $purple     #de93f9
+# define colors for windows:
+#                          border          background      text            indicator
+#client.focused             $purple         $bgcolor        $textcolor      $bgcolor
+#client.unfocused           $purple         $ibgcolor       $textcolor      $ibgcolor
+#client.focused_inactive    $purple         $ibgcolor       $itextcolor     $ibgcolor
+#client.urgent              $red            $red            $textcolor      $red
+
+# //// Royal Dark ////
+set $bgcolor    #212128
+set $ibgcolor   #404040
+set $textcolor  #eeeef4
+set $itextcolor #d0d0d0
+set $red        #f24054
+set $yellow     #f2f260
+set $green      #40f260
+set $cyan       #00bcd4
+set $blue       #8060f2
+set $magenta    #f240f2
 
 # define colors for windows:
 #                          border          background      text            indicator
-client.focused             $bgcolor        $bgcolor        $textcolor      $bgcolor
-client.unfocused           $ibgcolor       $ibgcolor       $textcolor      $ibgcolor
-client.focused_inactive    $ibgcolor       $ibgcolor       $itextcolor     $ibgcolor
-client.urgent              $red            $red            $textcolor      $red
+client.focused             $magenta         $bgcolor        $textcolor      $bgcolor
+client.unfocused           $magenta         $ibgcolor       $textcolor      $ibgcolor
+client.focused_inactive    $magenta         $ibgcolor       $itextcolor     $ibgcolor
+client.urgent              $red             $red            $textcolor      $red
 
 ############################################
 # bar settings (input comes from i3blocks) #
@@ -516,14 +546,14 @@ client.urgent              $red            $red            $textcolor      $red
 # Start i3bar to display a workspace bar
 # (plus the system information i3status finds out, if available)
 #bar {
-#		font pango:Noto Sans Regular 10, FontAwesome 10
-#		status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#	    	position top
-#	    	i3bar_command i3bar --transparency
+#       font pango:Noto Sans Regular 10, FontAwesome 10
+#       status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#           position top
+#           i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
-#		    tray_output primary
-#		    tray_padding 0
+#           tray_output primary
+#           tray_padding 0
 #
 # When strip_workspace_numbers is set to yes,
 # any workspace that has a name of the form
@@ -531,16 +561,16 @@ client.urgent              $red            $red            $textcolor      $red
 #strip_workspace_numbers yes
 ##strip_workspace_name no
 #
-#		    colors {
-#		    separator          $yellow
-#		    background         $bgcolor
-#		    statusline         $textcolor
-#                          		           border 		      bg           		txt		        indicator
-#		             active_workspace	       $bgcolor      		$bgcolor	      $textcolor	  $red
-#                focused_workspace       $bgcolor      		$yellow         $bgcolor	    $red
-#                inactive_workspace      $ibgcolor       	$ibgcolor       $itextcolor	  $red
-#                urgent_workspace        $red            	$red            $textcolor	  $red
-#	}
+#           colors {
+#           separator          $yellow
+#           background         $bgcolor
+#           statusline         $textcolor
+#                                          border             bg                txt             indicator
+#                    active_workspace          $bgcolor             $bgcolor          $textcolor      $red
+#                focused_workspace       $bgcolor           $yellow         $bgcolor        $red
+#                inactive_workspace      $ibgcolor          $ibgcolor       $itextcolor   $red
+#                urgent_workspace        $red               $red            $textcolor    $red
+#   }
 #}
 
 
@@ -551,11 +581,11 @@ client.urgent              $red            $red            $textcolor      $red
 # #08052be6 --> e6=90%
 
 # bar {
-#	font pango:Noto Sans Regular 9, FontAwesome 9
-#	status_command i3blocks -c ~/.config/i3/i3blocks-2.conf
-#	i3bar_command i3bar --transparency
-#	output HDMI-0
-#	position top
+#   font pango:Noto Sans Regular 9, FontAwesome 9
+#   status_command i3blocks -c ~/.config/i3/i3blocks-2.conf
+#   i3bar_command i3bar --transparency
+#   output HDMI-0
+#   position top
 #
 # When strip_workspace_numbers is set to yes,
 # any workspace that has a name of the form
@@ -563,15 +593,14 @@ client.urgent              $red            $red            $textcolor      $red
 #strip_workspace_numbers yes
 ##strip_workspace_name no
 #
-#	colors {
-#		separator          $purple
-#		background         $darkbluetrans
-#        	statusline         $white
-#					border		bg		txt		indicator
-#		focused_workspace	$lighterblue	$lighterblue	$darkblue	$purple
-#		active_workspace	$lightdblue	$lightdblue	$darkblue	$purple
-#		inactive_workspace	$darkblue	$darkblue	$lightdblue	$purple
-#		urgent_workspace	$urgentred	$urgentred	$white		$purple
-#	}
+#   colors {
+#       separator          $purple
+#       background         $darkbluetrans
+#           statusline         $white
+#                   border      bg      txt     indicator
+#       focused_workspace   $lighterblue    $lighterblue    $darkblue   $purple
+#       active_workspace    $lightdblue $lightdblue $darkblue   $purple
+#       inactive_workspace  $darkblue   $darkblue   $lightdblue $purple
+#       urgent_workspace    $urgentred  $urgentred  $white      $purple
+#   }
 #}
-

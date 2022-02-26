@@ -46,6 +46,7 @@ packer.init {
 --call plug#begin('~/.config/nvim/autoload/plugged')
 
     --Plug 'kyazdani42/nvim-web-devicons'
+    --Plug 'whatyouhide/vim-gotham'
 
 --call plug#end()
 
@@ -119,7 +120,7 @@ use {
 
   -- Colorizer
   use 'norcalli/nvim-colorizer.lua'
-  
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

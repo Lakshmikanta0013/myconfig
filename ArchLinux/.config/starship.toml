@@ -1,3 +1,11 @@
+#     ██╗      █████╗ ██╗  ██╗███████╗██╗  ██╗███╗   ███╗██╗██╗  ██╗ █████╗ ███╗   ██╗████████╗ █████╗
+#     ██║     ██╔══██╗██║ ██╔╝██╔════╝██║  ██║████╗ ████║██║██║ ██╔╝██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗
+#     ██║     ███████║█████╔╝ ███████╗███████║██╔████╔██║██║█████╔╝ ███████║██╔██╗ ██║   ██║   ███████║
+#     ██║     ██╔══██║██╔═██╗ ╚════██║██╔══██║██║╚██╔╝██║██║██╔═██╗ ██╔══██║██║╚██╗██║   ██║   ██╔══██║
+#     ███████╗██║  ██║██║  ██╗███████║██║  ██║██║ ╚═╝ ██║██║██║  ██╗██║  ██║██║ ╚████║   ██║   ██║  ██║
+#     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝
+
+
 # Don't print a new line at the start of the prompt
 add_newline = false
 
@@ -7,8 +15,19 @@ disabled = false
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                         # The name of the module we are configuring is "character"
-success_symbol = "[ ::](bold green)"  # The "success_symbol" is set to "➜" with color "bold green"
-error_symbol = "[ ::](bold red)" 		# used if previous command failed
+success_symbol = "[  ->](bold #40f260)"  # The "success_symbol" is set to "➜" with color "bold green"
+error_symbol = "[  ->](bold #f24054)"      # used if previous command failed
+
+########### Dracula Color  ################
+[aws]
+style = "bold #f2f260"
+
+[git_branch]
+style = "bold #f240f2"
+
+[git_status]
+style = "bold #f24054"
+#===============================================================
 
 # Use custom format
 #format = """
@@ -34,7 +53,7 @@ error_symbol = "[ ::](bold red)" 		# used if previous command failed
 
 # Indicates when in fish shell.
 #[custom.fish]
-#command = "echo " 
+#command = "echo "
 #when = 'test "$STARSHIP_SHELL" = "fish"'
 
 # Disable the package module, hiding it from the prompt completely
@@ -45,7 +64,7 @@ disabled = true
 ssh_only = false
 format = "[$hostname]($style):: "
 trim_at = "-"
-style = "bold dimmed white"
+style = "bold #8060f2"
 disabled = false
 
 [memory_usage]
@@ -64,18 +83,18 @@ disabled = true
 [cmd_duration]
 min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
 format = " took [$duration]($style)"
+style = "bold #f2f260"
 
 [directory]
 truncation_length = 3
 format = "[$path]($style)[$lock_symbol]($lock_style) "
+style = "bold #40f260"
 
 # ~/.config/starship.toml
 
 [username]
-style_user = "yellow bold"
-style_root = "green bold"
-format = "[$user]($style) "
+style_root = "bold #f240f2"
+format = "[$user]($style) on "
+style_user = "bold #f280c4"
 disabled = true
 show_always = true
-
-

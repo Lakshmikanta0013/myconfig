@@ -1,3 +1,10 @@
+#     ██╗      █████╗ ██╗  ██╗███████╗██╗  ██╗███╗   ███╗██╗██╗  ██╗ █████╗ ███╗   ██╗████████╗ █████╗
+#     ██║     ██╔══██╗██║ ██╔╝██╔════╝██║  ██║████╗ ████║██║██║ ██╔╝██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗
+#     ██║     ███████║█████╔╝ ███████╗███████║██╔████╔██║██║█████╔╝ ███████║██╔██╗ ██║   ██║   ███████║
+#     ██║     ██╔══██║██╔═██╗ ╚════██║██╔══██║██║╚██╔╝██║██║██╔═██╗ ██╔══██║██║╚██╗██║   ██║   ██╔══██║
+#     ███████╗██║  ██║██║  ██╗███████║██║  ██║██║ ╚═╝ ██║██║██║  ██╗██║  ██║██║ ╚████║   ██║   ██║  ██║
+#     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝
+
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
 # Any items in the `env` entry below will be added as
@@ -537,6 +544,34 @@ schemes:
       magenta: '#b77ee0'
       cyan:    '#54ced6'
       white:   '#282a2e'
+### Royal Mat ###
+  RoyalDark: &RoyalDark
+   # Default colors
+   primary:
+     background: '#212128'
+     foreground: '#eeeef4'
+
+   # Normal colors
+   normal:
+     black:   '#1a1a1e'
+     red:     '#f24054'
+     green:   '#40f260'
+     yellow:  '#f2f260'
+     blue:    '#8060f2'
+     magenta: '#f240f2'
+     cyan:    '#00bcd4'
+     white:   '#d0d0d0'
+
+   #  Bright colors
+   bright:
+     black:   '#404040'
+     red:     '#f28080'
+     green:   '#80f280'
+     yellow:  '#f2f280'
+     blue:    '#a480f2'
+     magenta: '#f280c4'
+     cyan:    '#00e5ff'
+     white:   '#eeeeee'
 
 ######################################################################
 ## SET THEME: Choose ONE color scheme from those in the above list. ##
@@ -552,8 +587,9 @@ schemes:
 # *SolarizedLight
 # *SolarizedDark
 # *TomorrowNight
+#*RoyalDark
 
-colors: *Dracula
+colors: *RoyalDark
 
 #######################################
 ##       END OF COLOR SCHEMES        ##
@@ -590,8 +626,8 @@ colors: *Dracula
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-#background_opacity: 1.0
-#window.opacity : 0.6
+#background_opacity: 0.9
+window.opacity : 0.9
 # background_opacity: 0.80
 
 # Key bindings

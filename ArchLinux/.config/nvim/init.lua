@@ -24,8 +24,8 @@ require'nvim-web-devicons'.get_icons()
 --require('monokai').setup { palette = require('monokai').pro }
 --require('monokai').setup { palette = require('monokai').soda }
 --require('monokai').setup { palette = require('monokai').ristretto }
-vim.cmd[[colorscheme dracula]]
---vim.cmd[[colorscheme tokyonight]]
+--vim.cmd[[colorscheme dracula]]
+vim.cmd[[colorscheme tokyonight]]
 -- Attaches to every FileType mode
 require 'colorizer'.setup()
 

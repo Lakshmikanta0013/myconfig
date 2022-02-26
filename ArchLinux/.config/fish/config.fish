@@ -1,28 +1,34 @@
+#     ██╗      █████╗ ██╗  ██╗███████╗██╗  ██╗███╗   ███╗██╗██╗  ██╗ █████╗ ███╗   ██╗████████╗ █████╗
+#     ██║     ██╔══██╗██║ ██╔╝██╔════╝██║  ██║████╗ ████║██║██║ ██╔╝██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗
+#     ██║     ███████║█████╔╝ ███████╗███████║██╔████╔██║██║█████╔╝ ███████║██╔██╗ ██║   ██║   ███████║
+#     ██║     ██╔══██║██╔═██╗ ╚════██║██╔══██║██║╚██╔╝██║██║██╔═██╗ ██╔══██║██║╚██╗██║   ██║   ██╔══██║
+#     ███████╗██║  ██║██║  ██╗███████║██║  ██║██║ ╚═╝ ██║██║██║  ██╗██║  ██║██║ ╚████║   ██║   ██║  ██║
+#     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
+
+# Locale for fish
+set LANG "en_IN.utf8"
+set -x LC_ALL en_IN.UTF-8
+set -x LC_CTYPE en_IN.UTF-8
 
 ### EXPORT ###
 set fish_greeting                                 # Supresses fish's intro message
 set TERM "xterm-256color"                         # Sets the terminal type
-#set EDITOR "emacs"                 		  # $EDITOR use Emacs in terminal
-#set VISUAL "emacs"              		  # $VISUAL use Emacs in GUI mode
 set EDITOR "nvim"                                 # $EDITOR use Neovim in terminal
 set VISUAL "nvim"                                 # $VISUAL use your editor of choice in GUI mode
 
-#Snap Directory for Debian
-set PATH /var/lib/snapd/snap/bin $PATH
-set XDG_DATA_DIRS /var/lib/snapd/desktop/:$XDG_DATA_DIRS
-
 ### AUTOCOMPLETE AND HIGHLIGHT COLORS ###
-set fish_color_normal '#8be9fd'
-set fish_color_autosuggestion '#44475a'
-set fish_color_command '#de93f9'   			
-set fish_color_error '#ff5555'
-set fish_color_param #f1fa8c
+set fish_color_normal '#8060f2'
+set fish_color_autosuggestion '#404040'
+set fish_color_command '#00e5ff'
+set fish_color_error '#f24054'
+set fish_color_param '#d0d0d0'
 
 
 ########################################################################
-############### 				FUNCTION				 ###############
+###############                 FUNCTION                 ###############
 ########################################################################
 
 function mkdir-cd
@@ -94,7 +100,7 @@ function unzip-cd --argument zipfile
 end
 
 ########################################################################
-###############               ALIASES			 ###############
+###############               ALIASES            ###############
 ########################################################################
 
 
@@ -111,7 +117,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 #Custom Clear command
-alias clr='clear;colorscript random' 
+alias clr='clear;colorscript random'
 
 # navigation
 alias ..='cd ..'
@@ -132,33 +138,20 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-#pacman command 
-#alias pacins='sudo pacman -S'
-#alias pacrmv='sudo pacman -Rns'
-#alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  			# remove orphaned packages
-#alias parurmv='paru -Rns'
-#alias pacup='sudo pacman -Syu'
-#alias yup='yay -Syu'
-#alias pup='paru -Syu'
-#alias yin='yay -S'
-#alias pin='paru -S'
+#pacman command
+alias pacins='sudo pacman -S'
+alias pacrmv='sudo pacman -Rns'
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)'             # remove orphaned packages
+alias parurmv='paru -Rns'
+alias pacup='sudo pacman -Syu'
+alias yup='yay -Syu'
+alias pup='paru -Syu'
+alias yin='yay -S'
+alias pin='paru -S'
 
 #Source config
 alias fsource='source ~/.config/fish/config.fish'
 alias bsource='source ~/.bashrc'
-
-#apt command
-alias pacins='sudo apt install'
-alias pacrmv='sudo apt purge'
-alias sys-autoremove='sudo apt --purge autoremove'
-alias pacsearch='sudo apt search'
-alias paclist='sudo apt list'
-alias pacinstalled='sudo apt list --installed'
-alias sysupgrade='sudo apt update && sudo apt upgrade'
-alias update='sudo apt update'
-alias upgrade='sudo apt upgrade'
-alias snap-ins='sudo snap install'
-alias snap-rm='sudo snap remove'
 
 #wifi
 alias wifi="nmtui"
@@ -283,7 +276,9 @@ alias oomox="flatpak run com.github.themix_project.Oomox &"
 #colorscript random
 
 #Custimize scripts
-neofetch
+  # neofetch
+  # figlet -c -f doom 'Lakshmikanta'
+  fm6000 -random -color random
 
 end
 
