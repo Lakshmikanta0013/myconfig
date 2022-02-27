@@ -1,10 +1,10 @@
 #
-#           ██╗                     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-#           ██║                     |L|a|k|s|h|m|i|k|a|n|t|a|
-#           ██║                     +-+-+-+-+ +-+-+-+-+-+-+ -+-+-+-+-+
-#           ██║                     |A|r|c|h| |c|o|n|f|i|g|
-#           ███████╗       +-+-+-+-+ +-+-+-+-+-+-+-+-+-+-+-+
-#               ╚══════╝
+#     ██╗      █████╗ ██╗  ██╗███████╗██╗  ██╗███╗   ███╗██╗██╗  ██╗ █████╗ ███╗   ██╗████████╗ █████╗
+#     ██║     ██╔══██╗██║ ██╔╝██╔════╝██║  ██║████╗ ████║██║██║ ██╔╝██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗
+#     ██║     ███████║█████╔╝ ███████╗███████║██╔████╔██║██║█████╔╝ ███████║██╔██╗ ██║   ██║   ███████║
+#     ██║     ██╔══██║██╔═██╗ ╚════██║██╔══██║██║╚██╔╝██║██║██╔═██╗ ██╔══██║██║╚██╗██║   ██║   ██╔══██║
+#     ███████╗██║  ██║██║  ██╗███████║██║  ██║██║ ╚═╝ ██║██║██║  ██╗██║  ██║██║ ╚████║   ██║   ██║  ██║
+#     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝
 #
 
 ################# Start of all the settings
@@ -175,7 +175,7 @@ for_window [urgent=latest] focus
 #
 # picom: https://wiki.archlinux.org/title/Picom
 # manpage: https://man.archlinux.org/man/picom.1.en
-exec_always picom -f
+#exec_always picom -f
 
 ############################################################
 ############################################################
@@ -253,6 +253,7 @@ exec --no-startup-id sleep 2 && firefox
 #exec --no-startup-id sleep 2 && chromium
 exec --no-startup-id sleep 1 && pcmanfm
 exec --no-startup-id sleep 1 && thunar
+exec --no-startup-id sleep 1 && code-oss
 
 ####################   resize    #########################
 
@@ -292,6 +293,7 @@ bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
+bindsym $mod+Shift+q xkill
 
 # exit-menu
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
@@ -496,7 +498,8 @@ for_window [class="Xfburn"] floating enable
 for_window [class="TelegramDesktop"] floating enable
 for_window [class="Eog"] floating enable
 for_window [class="Xfce4-taskmanager"] floating enable
-
+for_window [class="Xreader"] floating enable resize set 1024 720
+for_window [class="Engrampa"] floating enable
 ######################################
 # color settings for bar and windows #
 ######################################

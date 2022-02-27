@@ -5,6 +5,7 @@
 ; (gtk_accel_path "<Actions>/ThunarBookmarks/b21047d9e63889f4c28afa809bcd80cf" "")
 ; (gtk_accel_path "<Actions>/ThunarLauncher/delete" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/invert-selection" "")
+; (gtk_accel_path "<Actions>/ThunarBookmarks/d7c5ac8b9d6716e3c83c45fa1898f386" "")
 ; (gtk_accel_path "<Actions>/ThunarLauncher/open-in-new-tab" "<Primary><Shift>p")
 ; (gtk_accel_path "<Actions>/ThunarLauncher/delete-2" "<Shift>Delete")
 ; (gtk_accel_path "<Actions>/ThunarWindow/zoom-in" "<Primary>KP_Add")

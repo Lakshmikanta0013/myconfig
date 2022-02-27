@@ -127,10 +127,10 @@ font-2 = Font Awesome 6 Free Solid:pixelsize=12;2
 font-3 = Font Awesome 6 Brands:pixelsize=12;2
 
 ;===============================================================================
-; modules: [ i3, xwindow , space , wifi , network , speedtest* , arch-update , arch-aur-updates , deb-update, cpu , memory
+; modules: [ bullet i3, xwindow , space , wifi , network , speedtest* , arch-update , arch-aur-updates , deb-update, cpu , memory
 ;brightnessctl* , battery ,  backlight , pulseaudio , pulseaudio-control , date , pavolume , powermenu , kdeconnect ]
 
-modules-left = i3 xwindow
+modules-left = bullet i3 xwindow
 modules-center =
 modules-right =arch-aur-updates space network wifi pulseaudio battery brightnessctl uptime date powermenu
 ;===============================================================================
@@ -395,7 +395,7 @@ fuzzy-match = true
 ; NOTE: The label needs to match the name of the i3 workspace
 ;extra icons to choose from
 ;http://fontawesome.io/cheatsheet/
-;             
+;              
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
@@ -490,6 +490,11 @@ content = " | "
 content-foreground = ${colors.red}
 content-background = ${colors.background-trans}
 
+[module/bullet]
+type= custom/text
+content= "  "
+content-background= ${colors.red}
+content-foreground = ${colors.background}
 
 ################################################################################
 ################################################################################
