@@ -175,7 +175,7 @@ for_window [urgent=latest] focus
 #
 # picom: https://wiki.archlinux.org/title/Picom
 # manpage: https://man.archlinux.org/man/picom.1.en
-#exec_always picom -f
+exec_always picom -b
 
 ############################################################
 ############################################################
@@ -207,7 +207,7 @@ bindsym $mod+p exec rofi -modi drun -show drun \
 #bindsym F9 exec rofi -modi drun -show drun \
 #       -config ~/.config/rofi/rofidmenu.rasi
 
-bindsym $mod+t exec rofi -show window \
+bindsym $mod+t exec rofi -modi drun -show drun \
         -config ~/.config/rofi/rofidmenu.rasi
 
 ########## num lock activated
@@ -251,7 +251,6 @@ exec_always --no-startup-id autotiling
 exec --no-startup-id sleep 3 && alacritty
 exec --no-startup-id sleep 2 && firefox
 #exec --no-startup-id sleep 2 && chromium
-exec --no-startup-id sleep 1 && pcmanfm
 exec --no-startup-id sleep 1 && thunar
 exec --no-startup-id sleep 1 && code-oss
 
@@ -302,7 +301,9 @@ bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
 # lock with a picture:
 #bindsym $mod+l exec i3lock -i  /home/lakshmi/.config/i3/i3-lock-screen.jpg -p default|win -t
 # lock by blurring the screen:
-bindsym $mod+l exec ~/.config/i3/scripts/blur-lock
+#bindsym $mod+l exec ~/.config/i3/scripts/blur-lock
+bindsym $mod+l exec ~/.config/i3/scripts/fun-lock
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -479,7 +480,7 @@ for_window [class=Gimp] focus
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [title="File Transfer*"] floating enable border pixel 1
 for_window [class="__main__.py"] floating enable resize set 800 640 border normal
-for_window [window_role="GtkFileChooserDialog"] floating enable resize set 800 640 border normal
+for_window [window_role="GtkFileChooserDialog"] floating enable resize set 800 640
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
@@ -500,6 +501,8 @@ for_window [class="Eog"] floating enable
 for_window [class="Xfce4-taskmanager"] floating enable
 for_window [class="Xreader"] floating enable resize set 1024 720
 for_window [class="Engrampa"] floating enable
+for_window [class="File-roller"] floating enable
+
 ######################################
 # color settings for bar and windows #
 ######################################

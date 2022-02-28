@@ -139,15 +139,15 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 #pacman command
-alias pacins='sudo pacman -S'
+alias pacins='sudo pacman -S --needed'
 alias pacrmv='sudo pacman -Rns'
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'             # remove orphaned packages
 alias parurmv='paru -Rns'
-alias pacup='sudo pacman -Syu'
-alias yup='yay -Syu'
-alias pup='paru -Syu'
-alias yin='yay -S'
-alias pin='paru -S'
+alias pacup='sudo pacman -Syu --needed'
+alias yup='yay -Syu --needed'
+alias pup='paru -Syu --needed'
+alias yin='yay -S --needed'
+alias pin='paru -S --needed'
 
 #Source config
 alias fsource='source ~/.config/fish/config.fish'
@@ -266,17 +266,13 @@ alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 
-
-############### FLATPAK APP #############
-alias oomox="flatpak run com.github.themix_project.Oomox &"
-
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
 # Or install it from the Arch User Repository: shell-color-scripts
 #colorscript random
 
 #Custimize scripts
-  # neofetch
+  #neofetch
   # figlet -c -f doom 'Lakshmikanta'
   fm6000 -random -color random
 

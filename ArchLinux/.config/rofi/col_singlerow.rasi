@@ -22,15 +22,18 @@ configuration {
 
 //Color
 
-/*//GruvBox Color dark
+/*
+//GruvBox Color dark
 * {
   al:  #00000000;
   bg:  #282828f0;
   se:  #3c3836ff;
   fg:  #fbf1c7ff;
   ac:  #FB4934ff;
-} */
+}
+*/
 
+/*
 //Dracula Color dark
 * {
   al:  #00000000;
@@ -39,6 +42,15 @@ configuration {
   fg:  #f8f8f2ff;
   ac:  #ff5555ff;
 }
+*/
+// Royal Drark Colorscheme 
+* {
+  al:  #00000000;
+  bg:  #1a1a1eff;
+  se:  #212128ff;
+  fg:  #eeeef4ff;
+  ac:  #f24054ff;
+}
 
 //Main Customization
 
@@ -46,13 +58,13 @@ window {
     transparency:                   "real";
     background-color:               @bg;
     text-color:                     @fg;
-	border:							0px 5px;
+	border:							2px 5px;
 	border-color:					@ac;
-    border-radius:                  20px;
+    border-radius:                  8px;
 	width:							55%;
     location:                       center;
     x-offset:                       0;
-    y-offset:                       -20%;
+    y-offset:                       -5%;
 }
 
 scrollbar{
@@ -105,7 +117,7 @@ listview {
     background-color:               @al;
     padding:                        0px;
     columns:                        5;
-    lines:                          3;
+    lines:                          1;
     spacing:                       	0.5%;
     cycle:                          true;
     dynamic:                        true;
