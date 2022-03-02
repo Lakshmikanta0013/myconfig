@@ -32,6 +32,15 @@
 	<directories/>
 </action>
 <action>
+	<icon>imagemagick</icon>
+	<name>Convert png to jpg</name>
+	<unique-id>1510662686010963-1</unique-id>
+	<command>convert %f -quality 90 `basename %f .png`.jpg</command>
+	<description>Convert png to jpg</description>
+	<patterns>*.png</patterns>
+	<image-files/>
+</action>
+<action>
 	<icon>accessories-notes</icon>
 	<name>Copy Contents to Clipboard</name>
 	<unique-id>1643991747749309-1</unique-id>
@@ -39,6 +48,30 @@
 	<description>Copies the contents of the selected file to the clipboard.</description>
 	<range>*</range>
 	<patterns>*</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon>settings</icon>
+	<name>Ownership to user</name>
+	<unique-id>1526631178674034-9</unique-id>
+	<command>gnome-keyring-daemon -r -d;gksu &quot;chown -R $USER:$USER %F&quot;</command>
+	<description>Change permissions to user</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>aplication-x-executable</icon>
+	<name>Make executable</name>
+	<unique-id>1526670239648084-2</unique-id>
+	<command>chmod +x %f</command>
+	<description>Make a file execuble</description>
+	<patterns>*</patterns>
+	<other-files/>
 	<text-files/>
 </action>
 <action>
