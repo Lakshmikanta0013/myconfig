@@ -34,7 +34,7 @@ font pango:Source Code Pro 11
 set $mod Mod4
 
 #set default applications
-set $terminal alacritty
+set $terminal kitty
 set $browser firefox
 set $file thunar
 set $editor code
@@ -305,10 +305,11 @@ bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
 
 ### Lock the system
 # lock with a picture:
-bindsym $mod+l exec ~/.config/i3/scripts/fun-lock
+#bindsym $mod+l exec ~/.config/i3/scripts/fun-lock
 # lock by blurring the screen:
 #bindsym $mod+l exec ~/.config/i3/scripts/blur-lock
-
+#with betterlockscreen
+bindsym $mod+l exec betterlockscreen --off 120 -l blur dim 
 ### open new empty workspace
 bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 
@@ -478,6 +479,7 @@ for_window [class="Xreader"] floating enable resize set 1024 720
 for_window [class="Engrampa"] floating enable
 for_window [class="File-roller"] floating enable
 for_window [class="Grub Customizer"] floating enable
+for_window [class="whatsapp-nativefier-d40211"] floating enable
 
 for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [title="alsamixer"] floating enable border pixel 1
