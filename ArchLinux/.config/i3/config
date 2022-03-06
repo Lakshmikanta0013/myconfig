@@ -216,6 +216,7 @@ for_window [urgent=latest] focus
 exec_always picom -b --config ~/.config/picom/picom.conf
 bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
+
 ################## autostart applications/services on login
 
 exec --no-startup-id dex --autostart --environment i3
@@ -244,7 +245,7 @@ exec --no-startup-id xfce4-power-manager &
 exec --no-startup-id sleep 1 && $terminal
 exec --no-startup-id sleep 2 && $browser
 exec --no-startup-id sleep 1 && $file
-exec --no-startup-id sleep 1 && $editor
+#exec --no-startup-id sleep 1 && $editor
 
 ####################   resize    #########################
 
@@ -284,7 +285,7 @@ bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+q kill
-bindsym $mod+Shift+q xkill
+bindsym $mod+Shift+q kill
 
 # reload & restart the configuration file
 bindsym $mod+Shift+c reload
@@ -292,7 +293,7 @@ bindsym $mod+Shift+r restart
 
 ################# menu's in archlinux
 # start dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -h 24 -i -nb '#212128' -nf '#eeeef4' -sb '#f24054' -sf '#1a1a1e' -fn 'NotoMonoRegular:bold:pixelsize=14'
+bindsym $mod+d exec dmenu_run -h 24 -i -nb '#212128' -nf '#eeeef4' -sb '#f24054' -sf '#1a1a1e' -fn 'Hack:Regular:pixelsize=14'
 # rofi bindings
 bindsym $mod+p exec rofi -modi drun -show drun -config ~/.config/rofi/col_singlerow.rasi
 bindsym $mod+t exec rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi

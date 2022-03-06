@@ -140,7 +140,8 @@ alias fgrep='fgrep --color=auto'
 
 #pacman command
 alias pacins='sudo pacman -S --needed'
-alias pacrmv='sudo pacman -Rns'
+alias pacrmv='sudo pacman -R'
+alias pacrmv-d='sudo pacman -Rns'
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'             # remove orphaned packages
 alias parurmv='paru -Rns'
 alias pacup='sudo pacman -Syu --needed'
@@ -234,7 +235,8 @@ alias npolybar="$VISUAL ~/.config/polybar/config"
 alias nkitty="$VISUAL ~/.config/kitty/kitty.conf"
 alias nalacritty="$VISUAL ~/.config/alacritty/alacritty.yml"
 alias npicom="$VISUAL ~/.config/picom/picom.conf"
-
+alias nxresources="$VISUAL ~/.Xresources"
+alias nstarship="$VISUAL ~/.config/starship.toml"
 #systeminfo
 alias probe="sudo -E hw-probe -all -upload"
 alias sysfailed="systemctl list-units --failed"
@@ -272,9 +274,9 @@ alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 #colorscript random
 
 #Custimize scripts
-  #neofetch
+  neofetch
   # figlet -c -f doom 'Lakshmikanta'
-  fm6000 -random -color random
+  # fm6000 -random -color random
 
 end
 
