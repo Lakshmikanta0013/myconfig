@@ -1,0 +1,21 @@
+/* Example userChrome.css file */
+
+/* Import your desired components first */
+
+@import url(tab_close_button_always_on_hover.css);
+@import url(tab_loading_progress_throbber.css);
+@import url(menulike_bookmarks_folder_popups.css);
+
+/* Apply your custom modifications after imports */
+
+:root{
+  --toolbar-bgcolor: #212128 !important;
+  --uc-menu-bkgnd: var(--toolbar-bgcolor);
+  --arrowpanel-background: var(--toolbar-bgcolor) !important;
+  --autocomplete-popup-background: var(--toolbar-bgcolor) !important;
+  --uc-menu-disabled: #1a1a1e !important;
+  --lwt-toolbar-field-focus: #4a4a50 !important;
+}
+
+#sidebar-box{ --sidebar-background-color: var(--toolbar-bgcolor) !important; }
+window.sidebar-panel{ --lwt-sidebar-background-color: #4a4a50 !important; }
