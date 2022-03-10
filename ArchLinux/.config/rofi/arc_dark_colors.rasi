@@ -3,10 +3,10 @@
  * Maintainer: joekamprad <joekamprad@endeavouros.com>
  *******************************************************/
 * {
-    selected-normal-foreground:  rgba ( 249, 249, 249, 100 % );
-    foreground:                  rgba ( 196, 203, 212, 100 % );
+    selected-normal-foreground:  #eeeef4;
+    foreground:                  #d0d0d0;
     normal-foreground:           @foreground;
-    alternate-normal-background: rgba ( 64, 69, 82, 59 % );
+    alternate-normal-background: #1a1a1e;
     red:                         rgba ( 220, 50, 47, 100 % );
     yellow:			 rgb  (241, 250, 140, 100%);
     selected-urgent-foreground:  rgba ( 249, 249, 249, 100 % );

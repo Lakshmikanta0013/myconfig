@@ -132,7 +132,7 @@ font-3 = Font Awesome 6 Brands:pixelsize=12;2
 
 modules-left = bullet workspace xwindow
 modules-center =
-modules-right = network wifi pulseaudio battery brightnessctl uptime date powermenu
+modules-right = network pulseaudio battery brightnessctl uptime date powermenu
 ;===============================================================================
 separator =
 
@@ -140,7 +140,7 @@ separator =
 
 tray-position = right
 tray-padding = 2
-tray-background = ${colors.background-trans}
+tray-background = ${colors.background}
 tray-foreground = ${colors.foreground}
 
 ;i3: Make the bar appear below windows
@@ -220,13 +220,103 @@ label-urgent-padding = 1
 label-empty = %name%
 label-empty-foreground = ${colors.foreground}
 label-empty-padding = 1
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
 
-; Separator in between workspaces
-label-separator = |
+format-foreground = ${colors.foreground}
+format-background = ${colors.background-trans}
+
 
 ################################################################################
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = false
+index-sort = false
+enable-click = true
+enable-scroll = true
+wrapping-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+
+;http://fontawesome.io/cheatsheet/
+;             
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-default = 
+
+; Available tags:
+;   <label-state> (default) - gets replaced with
+;   <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.background}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-background = ${colors.cyan}
+label-focused-foreground = ${colors.background}
+label-focused-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 1
+label-unfocused-background = ${colors.background-alt}
+label-unfocused-foreground = ${colors.foreground-alt}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${colors.red}
+label-urgent-padding = 1
+
+; Separator in between workspaces
+label-separator = | 
+;===============================================================================
 
 [module/xwindow]
 ;https://github.com/jaagr/polybar/wiki/Module:-xwindow
@@ -597,3 +687,7 @@ label-disconnected-foreground = #666
 label-disconnected-padding = 1
 
 ;===============================================================================
+
+
+
+

@@ -100,7 +100,6 @@ ex ()
 ###############                 ALIASES                  ###############
 ########################################################################
 
-
 #vim
 alias vim="nvim"
 alias svim="sudo nvim"
@@ -112,6 +111,12 @@ alias mkdir="mkdir -p"
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
+
+#Custom Clear command
+alias clr='clear;colorscript random'
+
+# fastboot sudo permition
+alias fastboot='sudo fastboot'
 
 # navigation
 alias ..='cd ..'
@@ -133,18 +138,20 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 #pacman command
-alias pacins='sudo pacman -S'
-alias pacrmv='sudo pacman -Rns'
+alias pacins='sudo pacman -S --needed'
+alias pacrmv='sudo pacman -R'
+alias pacrmv-d='sudo pacman -Rns'
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'             # remove orphaned packages
 alias parurmv='paru -Rns'
-alias pacup='sudo pacman -Syu'
-alias yup='yay -Syu'
-alias pup='paru -Syu'
-alias yin='yay -S'
-alias pin='paru -S'
+alias pacup='sudo pacman -Syu --needed'
+alias yup='yay -Syu --needed'
+alias pup='paru -Syu --needed'
+alias yin='yay -S --needed'
+alias pin='paru -S --needed'
 
-#Custom Clear command
-alias clr='clear;colorscript random'
+#Source config
+alias fsource='source ~/.config/fish/config.fish'
+alias bsource='source ~/.bashrc'
 
 #wifi
 alias wifi="nmtui"
@@ -152,7 +159,12 @@ alias wifi="nmtui"
 #chmod
 alias mod="sudo chmod +x"
 
+#change ownership
+alias ownfi='sudo chown $USER'
+alias ownfo='sudo chown -R $USER'
+
 # git
+alias gst='git status'
 alias addup='git add -u'
 alias addall='git add .'
 alias branch='git branch'
@@ -169,6 +181,9 @@ alias newtag='git tag -a'
 #To download this https://github.com/voider755/almh.git
 # arch user "yay -S almh-git"
 alias maintaincence='almh.py'
+
+#list all drive with UUID
+alias list_drive='lsblk -f'
 
 #continue download
 alias wget="wget -c"
@@ -198,17 +213,29 @@ alias jctl="journalctl -p 3 -xb"
 #Edit with your EDITOR for important configuration files
 alias nlightdm="sudo $EDITOR /etc/lightdm/lightdm.conf"
 alias npacman="sudo $EDITOR /etc/pacman.conf"
+alias nparu="sudo $EDITOR /etc/paru.conf"
 alias ngrub="sudo $EDITOR /etc/default/grub"
 alias nconfgrub="sudo $EDITOR /boot/grub/grub.cfg"
 alias nmkinitcpio="sudo $EDITOR /etc/mkinitcpio.conf"
 alias nmirrorlist="sudo $EDITOR /etc/pacman.d/mirrorlist"
-alias narcomirrorlist='sudo nano /etc/pacman.d/arcolinux-mirrorlist'
-alias nsddm="sudo $EDITOR /etc/sddm.conf"
+alias narcomirrorlist='sudo $EDITOR /etc/pacman.d/arcolinux-mirrorlist'
+alias nsddm="sudo $EDITOR /usr/lib/sddm/sddm.conf.d/default.conf"
 alias nfstab="sudo $EDITOR /etc/fstab"
-alias nbash="$EDITOR ~/.bashrc"
-alias nzsh="$EDITOR ~/.zshrc"
-alias nfish="$EDITOR ~/.config/fish/config.fish"
+alias nbash="$VISUAL ~/.bashrc"
+alias nzsh="$VISUAL ~/.zshrc"
+alias nfish="$VISUAL ~/.config/fish/config.fish"
+alias nbspwm="$VISUAL ~/.config/bspwm/bspwmrc"
+alias nsxhkd="$VISUAL ~/.config/sxhkd/sxhkdrc"
+alias nsourcelist="sudo $EDITOR /etc/apt/sources.list"
 
+#Edit config file for ricing
+alias ni3="$VISUAL ~/.config/i3/config"
+alias npolybar="$VISUAL ~/.config/polybar/config"
+alias nkitty="$VISUAL ~/.config/kitty/kitty.conf"
+alias nalacritty="$VISUAL ~/.config/alacritty/alacritty.yml"
+alias npicom="$VISUAL ~/.config/picom/picom.conf"
+alias nxresources="$VISUAL ~/.Xresources"
+alias nstarship="$VISUAL ~/.config/starship.toml"
 #systeminfo
 alias probe="sudo -E hw-probe -all -upload"
 alias sysfailed="systemctl list-units --failed"
@@ -240,19 +267,17 @@ alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 
-#Customized start programe
-  #neofetch
-  #figlet -c -f doom 'Lakshmikanta'
-  #fm6000 -random -color random
-  #colorscript random
-
 #starship startup scripts
-  #eval "$(starship init bash)"
+eval "$(starship init bash)"
 
-#3 Set fish as default prompt
+# Set fish as default prompt
 exec fish
 
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
 # END_KITTY_SHELL_INTEGRATION
+
+#Customized start programe
 neofetch | lolcat
+# fm6000 -random -color random
+# colorscript random

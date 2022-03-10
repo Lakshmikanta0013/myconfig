@@ -34,7 +34,7 @@ font pango:Source Code Pro 11
 set $mod Mod4
 
 #set default applications
-set $terminal kitty
+set $terminal alacritty
 set $browser firefox
 set $file thunar
 set $editor code
@@ -234,7 +234,7 @@ exec --no-startup-id feh --bg-fill --randomize ~/.background/* &
 ### Desktop notifications
 # exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 # alternative if you installed aside with XFCE4:
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+#exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 ### autotiling script
 # https://github.com/nwg-piotr/autotiling
 #yay -S autotiling ;) (it is in AUR)
@@ -243,7 +243,7 @@ exec_always --no-startup-id autotiling
 exec --no-startup-id xfce4-power-manager &
 ############ Autostart apps 
 exec --no-startup-id sleep 1 && $terminal
-exec --no-startup-id sleep 2 && $browser
+#exec --no-startup-id sleep 2 && $browser
 exec --no-startup-id sleep 1 && $file
 #exec --no-startup-id sleep 1 && $editor
 
@@ -293,7 +293,7 @@ bindsym $mod+Shift+r restart
 
 ################# menu's in archlinux
 # start dmenu
-bindsym $mod+d exec dmenu_run -h 24 -i -nb '#212128' -nf '#eeeef4' -sb '#f24054' -sf '#1a1a1e' -fn 'Hack:Regular:pixelsize=14'
+bindsym $mod+d exec_always --no-startup-id dmenu_run -h 24 -i -nb '#212128' -nf '#eeeef4' -sb '#f24054' -sf '#1a1a1e' -fn 'Hack:Regular:pixelsize=14'
 # rofi bindings
 bindsym $mod+p exec rofi -modi drun -show drun -config ~/.config/rofi/col_singlerow.rasi
 bindsym $mod+t exec rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
@@ -418,6 +418,7 @@ assign [class="firefox|Chromium|Google-chrome"] $ws2
 assign [class="Thunar|Pcmanfm"] $ws3
 assign [class="code-oss|Subl1|Mousepad|VSCodium|Geany|Notepadqq|Atom"] $ws4
 assign [class="Gimp"] $ws8
+assign [class="vlc|libreoffice"] $ws6
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Alacritty] focus

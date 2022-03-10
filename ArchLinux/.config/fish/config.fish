@@ -19,6 +19,8 @@ set TERM "xterm-256color"                         # Sets the terminal type
 set EDITOR "nvim"                                 # $EDITOR use Neovim in terminal
 set VISUAL "nvim"                                 # $VISUAL use your editor of choice in GUI mode
 
+### PATH
+
 ### AUTOCOMPLETE AND HIGHLIGHT COLORS ###
 set fish_color_normal '#8060f2'
 set fish_color_autosuggestion '#404040'
@@ -103,7 +105,6 @@ end
 ###############               ALIASES            ###############
 ########################################################################
 
-
 #vim
 alias vim="nvim"
 alias svim="sudo nvim"
@@ -118,6 +119,9 @@ alias rm='rm -i'
 
 #Custom Clear command
 alias clr='clear;colorscript random'
+
+# fastboot sudo permition
+alias fastboot='sudo fastboot'
 
 # navigation
 alias ..='cd ..'

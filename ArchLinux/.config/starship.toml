@@ -84,7 +84,7 @@ disabled = true
 ssh_only = false
 format = "[$hostname]($style):: "
 trim_at = "-"
-style = "bold #8060f2"
+style = "bold #00e5ff"
 disabled = false
 
 [memory_usage]
