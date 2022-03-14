@@ -1,5 +1,6 @@
-This is my personal config 
-<!---
-Lakshmikanta0013/Lakshmikanta0013 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+## myconfig 
+These are my personal config which I use in a daly basis
+  https://imgur.com/2bXhmvS
+  https://imgur.com/6h0I4II
+  https://imgur.com/3pwEwa9
+ 
